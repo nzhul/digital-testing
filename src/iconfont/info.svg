@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  x="0px"
+  y="0px"
+  viewBox="0 0 512 512"
+  xml:space="preserve">
+  <path d="M216.4,39.6C216.4,17.7,234.1,0,256,0c21.9,0,39.6,17.7,39.6,39.6c-0.4,21.8-18.2,39.3-40,39.2 C234,78.6,216.7,61.2,216.4,39.6z M225.4,512h61.3V149.2h-61.3V512z"/>
+</svg>

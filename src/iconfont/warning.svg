@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  x="0px"
+  y="0px"
+  viewBox="0 0 512 512"
+  xml:space="preserve">
+  <g>
+  	<polygon points="277.9,348.5 292.9,0 219.2,0 233.3,348.5"/>
+  	<path d="M255.6,422.3c-24.1,0-43.9,19.9-44,45.4c0,24.5,19.9,44.3,44.3,44.3s44.3-19.9,44.3-44.3c0-0.3,0-0.5,0-0.8 C300.3,442.2,280.3,422.2,255.6,422.3z"/>
+  </g>
+</svg>

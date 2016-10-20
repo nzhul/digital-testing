@@ -1,6 +1,5 @@
-// Just an example js
+const aaa = () => {
+  console.log('aaa')
+}
 
-(function() {
-  'use strict'
-  console.log('Working from A...')
-})()
+export default aaa

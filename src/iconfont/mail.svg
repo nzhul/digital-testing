@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  x="0px"
+  y="0px"
+  width="512"
+  height="512"
+  viewBox="0 0 512 512"
+  xml:space="preserve">
+  <polygon points="504.7,86.4 7.3,86.4 256,335.1"/>
+  <polygon points="256,375.5 161.1,280.7 18.2,423.6 493.8,423.6 350.9,280.7"/>
+  <polygon points="0,119.5 0,401.4 141,260.5"/>
+  <polygon points="371,260.5 512,401.4 512,119.5"/>
+</svg>

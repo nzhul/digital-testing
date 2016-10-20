@@ -1,0 +1,26 @@
+@font-face
+  font-family: "<%= fontName %>"
+  src: url("/<%= fontPath %>/<%= fontName %>-<%= hash %>.eot")
+  src: url("/<%= fontPath %>/<%= fontName %>-<%= hash %>.eot?#iefix") format("eot"),
+    url("/<%= fontPath %>/<%= fontName %>-<%= hash %>.woff2") format("woff2"),
+    url("/<%= fontPath %>/<%= fontName %>-<%= hash %>.woff") format("woff"),
+    url("/<%= fontPath %>/<%= fontName %>-<%= hash %>.ttf") format("truetype"),
+    url("/<%= fontPath %>/<%= fontName %>-<%= hash %>.svg#<%= fontName %>") format("svg")
+  font-weight: normal
+  font-style: normal
+
+[class^="<%= className %>-"]:before,
+[class*=" <%= className %>-"]:before
+  font-family: "<%= fontName %>"
+  vertical-align: middle
+  font-weight: normal
+  font-style: normal
+  speak: none
+  text-decoration: inherit
+  text-transform: none
+  text-rendering: geometricPrecision
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+<% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16) %>" }
+<% }) %>

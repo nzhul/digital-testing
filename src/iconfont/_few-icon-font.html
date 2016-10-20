@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= fontName %></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "<%= fontName %>";
+        src: url("../../../<%= fontPath %>/<%= fontName %>-<%= hash %>.eot");
+        src: url("../../../<%= fontPath %>/<%= fontName %>-<%= hash %>.eot?#iefix") format("eot"),
+          url("../../../<%= fontPath %>/<%= fontName %>-<%= hash %>.woff2") format("woff2"),
+          url("../../../<%= fontPath %>/<%= fontName %>-<%= hash %>.woff") format("woff"),
+          url("../../../<%= fontPath %>/<%= fontName %>-<%= hash %>.ttf") format("truetype"),
+          url("../../../<%= fontPath %>/<%= fontName %>-<%= hash %>.svg#<%= fontName %>") format("svg");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      [class^="<%= className %>-"]:before,
+      [class*=" <%= className %>-"]:before {
+        font-family: "<%= fontName %>";
+        vertical-align: middle;
+        font-weight: normal;
+        font-style: normal;
+        speak: none;
+        text-decoration: inherit;
+        text-transform: none;
+        text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      <% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16) %>" }
+      <% }); %>
+
+
+      body { font-family: monospace !important; text-align: center; background: #e5e5e5 }
+      body > h1 { color: #666; margin: 1em 0 }
+      .glyph { padding: 0 }
+      .glyph > li { display: inline-block; margin: .3em .2em; width: 11em; height: 7.4em; background: #fff; border-radius: .5em; position: relative }
+      .glyph > li[class*="-i-"]:before { display: block; margin-top: .1em; line-height: 1; font-size: 3.6em }
+      .glyph-name { font-size: .9em; color: #777; display: block; white-space: nowrap }
+      .glyph-name b { font-weight: 900; color: #000 }
+      .glyph-codepoint { font-size: .9em; color: #bbb }
+      div { display: inline-block; text-align: center }
+      input { width: 200px; display: inline-block; vertical-align: middle }
+    </style>
+  </head>
+  <body>
+    <h1><%= fontName %></h1>
+    <ul class="glyph">
+    <% _.each(glyphs, function(glyph) { %>
+      <li class="<%= className %>-<%= glyph.name %>">
+        <span class="glyph-name">.<%= className %>-<b><%= glyph.name %></b></span>
+        <span class="glyph-codepoint">content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16) %>";</span>
+      </li>
+    <% }); %>
+    </ul>
+    <div>
+      Hue: <input type="range" class="color-slider" id="color-slider-1" min="0" max="360" value="0" />
+      <script>
+        $("#color-slider-1").attr("value", Math.floor(Math.random() * (360 - 0 + 1)) + 0);
+      </script>
+    </div>
+    <div>
+      Sat: <input type="range" class="color-slider" id="color-slider-2" min="0" max="100" value="94" />
+    </div>
+    <div>
+      Lum: <input type="range" class="color-slider" id="color-slider-3" min="0" max="100" value="32" />
+    </div>
+    <script>
+      $(function() {
+        function changeIconColor() {
+          $(".glyph > li").css("color", "hsla(" + $("#color-slider-1").val() + ", " + $("#color-slider-2").val() + "%, " + $("#color-slider-3").val() + "%, 1)");
+        }
+        $(".color-slider").change(function() {
+          changeIconColor();
+        });
+        changeIconColor();
+      });
+    </script>
+  </body>
+</html>

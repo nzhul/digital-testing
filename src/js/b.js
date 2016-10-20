@@ -1,6 +1,11 @@
-// Just an example js
+const bbb = () => {
+  console.log('bbb')
+}
 
-(function() {
-  'use strict'
-  console.log('Working from B...')
-})()
+const aaa = () => {
+  console.log('AAAAAAAAAAAA!!!!!!')
+}
+
+aaa()
+
+export default bbb

@@ -1,0 +1,41 @@
+clearfix()
+  &:after
+    content: ""
+    display: table
+    clear: both
+
+
+base-font-size()
+  font-size: 18px
+  +media($xl)
+    font-size: 16px
+
+
+media($num)
+  $condition = 'only screen and (max-width: %s)' % $num
+  @media $condition
+    {block}
+
+
+media-min($num)
+  $num = ($num == $s || $m || $l || $xl) ? $num + 1 : $num
+  $condition = 'only screen and (min-width: %s)' % $num
+  @media $condition
+    {block}
+
+
+media-between($num1, $num2)
+  $numMax = max($num1, $num2)
+  $numMin = min($num1, $num2)
+  $numMin = ($numMin == $s || $m || $l || $xl) ? $numMin + 1 : $numMin
+  $condition = 'only screen and (max-width: %s) and (min-width: %s)' % ( $numMax $numMin )
+  @media $condition
+    {block}
+
+// media-in = media-between
+
+media-webkit-only($num)
+  $condition = 'screen and (-webkit-min-device-pixel-ratio: %s)' % $num
+  @media $condition
+    {block}
+

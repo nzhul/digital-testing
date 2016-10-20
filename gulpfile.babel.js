@@ -4,33 +4,47 @@
 import del from 'del'
 import path from 'path'
 import gulp from 'gulp'
+import crypto from 'crypto'
+import webpack from 'webpack'
 import cssnano from 'cssnano'
+import mqpacker from 'css-mqpacker'
 import notifier from 'node-notifier'
 import autoprefixer from 'autoprefixer'
-import sass from 'gulp-sass'
 import util from 'gulp-util'
 import size from 'gulp-size'
 import cache from 'gulp-cache'
-import uglify from 'gulp-uglify'
+// import uglify from 'gulp-uglify'
 import eslint from 'gulp-eslint'
 import concat from 'gulp-concat'
 import rename from 'gulp-rename'
+import stylus from 'gulp-stylus'
 import postcss from 'gulp-postcss'
+import iconfont from 'gulp-iconfont'
 import imagemin from 'gulp-imagemin'
 import stylelint from 'gulp-stylelint'
 import sourcemaps from 'gulp-sourcemaps'
-import config from './js.json'
+import consolidate from 'gulp-consolidate'
+import config from './webpack.config'
 
 // Everthing that need to be deployed on production goes to `build` folder
 // These are some glob patters for easy reference
 const DEST = './build'
 const DEST_CSS = './build/css'
 const DEST_IMG = './build/img'
+// const DEST_DOCS = './build/docs'
+const DEST_DOCS_VIEWS = './build/docs/views'
+const DEST_ICONFONT = './build/iconfont'
 
 const JS_FILES = './src/js/**/*'
 const IMAGE_FILES = './src/img/**/*'
-const SASS_FILES = './src/styles/*.scss'
-const SASS_FILES_ALL = './src/styles/**/*.scss'
+const STYLUS_FILES = './src/styles/*.styl'
+const STYLUS_FILES_ALL = './src/styles/**/*.styl'
+// const SASS_FILES = './src/styles/*.scss'
+// const SASS_FILES_ALL = './src/styles/**/*.scss'
+
+const ICONFONT_SVG_FILES = './src/iconfont/**/*.svg'
+const ICONFONT_CSS_FILE = './src/iconfont/_few-icon-font.css'
+const ICONFONT_HTML_FILE = './src/iconfont/_few-icon-font.html'
 
 // No need to write css prefixes by hand
 // Autoprefixer is a great tool that handles this automatically with minimal configuration
@@ -51,7 +65,7 @@ const AUTOPREFIXER_BROWSERS = [
 // of course you can disable them or just disable the sound
 const NOTIFICATION_SETTINGS = {
   sound: true,
-  title: 'DEMO_WORKFLOW',
+  title: 'λ Lambda',
   icon: path.join(__dirname, 'src', 'img', 'js-logo.png')
 }
 
@@ -93,9 +107,9 @@ const images = () => {
 // usefull for development
 const cssdev = () => {
   let err
-  return gulp.src(SASS_FILES)
+  return gulp.src(STYLUS_FILES)
     .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(stylus({ 'include css': true }))
     .on('error', onerror)
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST_CSS))
@@ -112,10 +126,10 @@ const cssdev = () => {
 // CssNano minifies the compiled css => `http://cssnano.co`
 // Stylelint reports issues that we might have => `http://stylelint.io`
 const cssdist = () => {
-  return gulp.src(SASS_FILES)
-    .pipe(sass({ outputStyle: 'expanded' }))
+  return gulp.src(STYLUS_FILES)
+    .pipe(stylus({ 'include css': true }))
     .on('error', onerror)
-    .pipe(postcss([ autoprefixer({ browsers: AUTOPREFIXER_BROWSERS, cascade: false }) ]))
+    .pipe(postcss([ autoprefixer({ browsers: AUTOPREFIXER_BROWSERS, cascade: false }), mqpacker() ]))
     .pipe(gulp.dest(DEST_CSS))
     .pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))
     .on('error', onerror)
@@ -126,13 +140,56 @@ const cssdist = () => {
     .pipe(size({ title: 'css gzip', gzip: true }))
 }
 
+// Handle icon font
+const font = {
+  hash: '',
+  className: '-i',
+  fontPath: 'iconfont',
+  fontName: 'few-icon-font',
+
+  once() {
+    gulp.tasks['css'].dep = []
+  },
+
+  create() {
+    return gulp.src(ICONFONT_SVG_FILES)
+      .pipe(cache(imagemin()))
+      .pipe(iconfont({ normalize: true, fontName: font.fontName, appendUnicode: false, formats: ['ttf', 'svg', 'eot', 'woff', 'woff2'], startUnicode: 0x00b1 }))
+      .on('glyphs', (glyphs) => { font.glyphs = glyphs })
+      .pipe(rename({ suffix: `-${font.hash}` }))
+      .pipe(gulp.dest(DEST_ICONFONT))
+  },
+
+  invalidate() {
+    return gulp.src(ICONFONT_SVG_FILES)
+      .pipe(cache(imagemin()))
+      .pipe(concat('sprite.svg'))
+      .pipe(util.buffer())
+      .on('data', (files) => { font.hash = crypto.createHash('md5').update(files[0]._contents).digest('hex').slice(0, 10) })
+  },
+
+  css() {
+    return gulp.src(ICONFONT_CSS_FILE)
+      .pipe(consolidate('lodash', font))
+      .pipe(rename({ extname: '.styl' }))
+      .pipe(gulp.dest('./src/styles/modules/'))
+  },
+
+  html() {
+    return gulp.src(ICONFONT_HTML_FILE)
+      .pipe(consolidate('lodash', font))
+      .pipe(rename({ basename: font.fontName }))
+      .pipe(gulp.dest(DEST_DOCS_VIEWS))
+  }
+}
+
 // We use `eslint` to lint our js code and `eslint-config-standard` here...
 // but you can use any configuration you find suitable for your needs.
 // For example `eslint-config-google` and `eslint-config-airbnb` are quite good ones in our opinion
 // You can even build your own!
 // Read more at `http://eslint.org`
 const lint = () => {
-  return gulp.src([ JS_FILES, './gulpfile.babel.js' ])
+  return gulp.src([ JS_FILES, './gulpfile.babel.js', './webpack.config.js' ])
     .pipe(eslint())
     .pipe(eslint.results(results => results.warningCount ? notify('eslint warning') : util.noop()))
     .pipe(eslint.format())
@@ -140,17 +197,13 @@ const lint = () => {
     .on('error', onerror)
 }
 
-// `config` here is comming from `js.json` file which describes what bundles we can define
-// javascript bundles are minified for production only
-const js = (config) => {
-  return gulp.src(config.src)
-    .pipe(concat(config.filename))
-    .pipe(gulp.dest(config.dest))
-    .pipe(failsafe ? util.noop() : uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(config.dest))
-    .pipe(size({ title: 'js' }))
-    .pipe(size({ title: 'js gzip', gzip: true }))
+// WEBPACK
+const js = (done) => {
+  webpack(failsafe ? config.dev : config.dist, (err, stats) => {
+    if (err) throw new Error('webpack error', err)
+    log('webpack', stats.toString({ colors: true, progress: true }))
+    done()
+  })
 }
 
 const onsuccess = () => {
@@ -172,7 +225,7 @@ const watch = () => {
   failsafe = true
   gulp.watch(JS_FILES, ['js']).on('change', eventlog)
   gulp.watch(IMAGE_FILES, ['images']).on('change', eventlog)
-  gulp.watch(SASS_FILES_ALL, ['css']).on('change', eventlog)
+  gulp.watch(STYLUS_FILES_ALL, ['css']).on('change', eventlog)
   log('watching now...')
   notify('watching now...')
 }
@@ -182,11 +235,18 @@ const watch = () => {
 // See `package.json` for more details
 gulp.task('dev', ['build'], watch)
 gulp.task('default', ['build'], watch)
-gulp.task('build', ['clean', 'copy', 'css', 'images', 'js'], onsuccess)
+gulp.task('build', ['clean', 'copy', 'iconfont', 'css', 'images', 'js'], onsuccess)
 
 gulp.task('clean', () => del.sync(DEST))
 gulp.task('copy', copy)
 gulp.task('lint', lint)
 gulp.task('images', images)
-gulp.task('js', ['lint'], () => js(config.all))
-gulp.task('css', () => failsafe ? cssdev() : cssdist())
+gulp.task('js', ['lint'], js)
+
+gulp.task('iconfont-hash', font.invalidate)
+gulp.task('iconfont-create', ['iconfont-hash'], font.create)
+gulp.task('iconfont-css', ['iconfont-create'], font.css)
+gulp.task('iconfont-html', ['iconfont-create'], font.html)
+gulp.task('iconfont', ['iconfont-css', 'iconfont-html'], font.once)
+
+gulp.task('css', ['iconfont'], () => failsafe ? cssdev() : cssdist())

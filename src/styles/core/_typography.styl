@@ -1,0 +1,124 @@
+// Text sizes   line-height   font-size  $xl  $l   $m   $s
+Text-sizes =    1.35          11         11   11   11   11,
+                1.35          13         13   13   13   13,
+                1.35          14         14   14   14   14,
+                1.35          15         15   15   15   15,
+                1.45          16         16   16   13   13,
+                1.45          17         17   17   17   17,
+                1.45          18         17   17   17   17,
+                1.50          19         17   17   17   17,
+                1.50          20         19   17   17   17,
+                1.35          24         22   20   20   20,
+                1.35          28         24   22   22   20,
+                1.30          30         24   24   24   22,
+                1.10          32         30   28   26   24,
+                1.20          36         30   28   26   24,
+                1.00          40         34   32   26   26,
+                0.95          44         34   32   26   26,
+                1.00          50         40   32   28   28,
+                1.00          60         50   44   34   34,
+                1.02          70         50   48   34   34,
+                0.96          80         60   48   34   34,
+                1.02          90         80   80   60   40,
+                0.93          110        80   80   60   40
+
+for i in Text-sizes
+  .-fs{i[1]}
+    font-size: (i[1])px !important
+    line-height: i[0]
+    if i[2] != i[1]
+      +media($xl)
+        font-size: (i[2])px !important
+    if i[3] != i[2]
+      +media($l)
+        font-size: (i[3])px !important
+    if i[4] != i[3]
+      +media($m)
+        font-size: (i[4])px !important
+    if i[5] != i[4]
+      +media($s)
+        font-size: (i[5])px !important
+
+
+//Heading sizes
+Heading-sizes = "h6" 20 18 17 17 17,
+                "h5" 28 24 22 22 20,
+                "h4" 44 34 32 26 26,
+                "h3" 60 50 44 34 34,
+                "h2" 70 50 48 34 34,
+                "h1" 110 80 80 60 40
+
+for i in Heading-sizes
+  .-fs-{i[0]}
+    font-size: (i[1])px
+    if i[2] != i[1]
+      +media($xl)
+        font-size: (i[2])px
+    if i[3] != i[2]
+      +media($l)
+        font-size: (i[3])px
+    if i[4] != i[3]
+      +media($m)
+        font-size: (i[4])px
+    if i[5] != i[4]
+      +media($s)
+        font-size: (i[5])px
+
+h1, h2, h3, h4, h5
+  margin: 0 0 25px
+  font-family: $ff-title
+  font-weight: 300
+  color: #000
+
+h1
+  @extends .-fs-h1
+  line-height: 0.9
+  letter-spacing: -0.05em
+
+h2
+  @extends .-fs-h2
+  line-height: 1.02
+  letter-spacing: -0.03em
+
+
+h3
+  @extends .-fs-h3
+  line-height: 1
+  letter-spacing: -0.03em
+
+h4
+  @extends .-fs-h4
+  line-height: 0.95
+  letter-spacing: -0.01em
+  margin: 0 0 15px
+
+h5
+  @extends .-fs-h5
+  font-weight: 400
+  line-height: 1.15
+  letter-spacing: -0.03em
+
+h6
+  @extends .-fs-h6
+  margin: 0 0 5px
+  font-family: $ff-base
+  font-weight: 400
+  line-height: 1.2
+  letter-spacing: 0.05em
+  text-transform: uppercase
+  color: #000
+
+// Typography
+//
+// Font sizes that we have
+//
+// Markup:
+// <h1>Heading 1</h1>
+// <h2>Heading 2</h2>
+// <h3>Heading 3</h3>
+// <h4>Heading 4</h4>
+// <h5>Heading 5</h5>
+// <h6>Heading 6</h6>
+// All sizes that we currently have: <span class="-fs110">110px</span>, <span class="-fs90">90px</span>, <span class="-fs80">80px</span>, <span class="-fs70">70px</span>, <span class="-fs60">60px</span>, <span class="-fs50">50px</span>, <span class="-fs44">44px</span>, <span class="-fs40">40px</span>, <span class="-fs36">36px</span>, <span class="-fs32">32px</span>, <span class="-fs30">30px</span>, <span class="-fs28">28px</span>, <span class="-fs24">24px</span>, <span class="-fs20">20px</span>, <span class="-fs19">19px</span>, <span class="-fs18">18px</span>, <span class="-fs17">17px</span>, <span class="-fs16">16px</span>, <span class="-fs15">15px</span>, <span class="-fs14">14px</span>, <span class="-fs13">13px</span>, <span class="-fs11">11px</span>
+//
+// Styleguide Typography
