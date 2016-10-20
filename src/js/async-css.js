@@ -16,4 +16,4 @@ const asyncCss = (url) => {
   else window.addEventListener('load', () => loadCss(url), false)
 }
 
-export default asyncCss
+export default { load: asyncCss }
