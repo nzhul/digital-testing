@@ -85,6 +85,7 @@ const eventlog = (event) => {
 }
 
 const notify = (message) => {
+  log(message)
   notifier.notify(assign({}, NOTIFICATION_SETTINGS, { message }))
 }
 
@@ -112,6 +113,7 @@ const cssdev = () => {
     .pipe(stylus({ 'include css': true }))
     .on('error', onerror)
     .pipe(sourcemaps.write())
+    .pipe(postcss([ autoprefixer({ cascade: false }) ]))
     .pipe(rename({ suffix: `-${config.version}` }))
     .pipe(gulp.dest(DEST_CSS))
     .pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))

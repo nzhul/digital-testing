@@ -42,10 +42,10 @@ for i in Text-sizes
 
 //Heading sizes
 Heading-sizes = "h6" 20 18 17 17 17,
-                "h5" 28 24 22 22 20,
-                "h4" 44 34 32 26 26,
+                "h5" 24 24 22 22 20,
+                "h4" 36 34 32 26 26,
                 "h3" 60 50 44 34 34,
-                "h2" 70 50 48 34 34,
+                "h2" 60 50 48 34 34,
                 "h1" 80 80 80 60 40
 
 for i in Heading-sizes
@@ -65,46 +65,31 @@ for i in Heading-sizes
         font-size: (i[5])px
 
 h1, h2, h3, h4, h5
-  margin: 0 0 25px
-  font-family: $ff-title
-  font-weight: 300
   color: #000
+  margin: 0 0 20px
+  font-weight: 500
+  line-height: 1.55
+  font-family: $ff-title
 
 h1
   @extends .-fs-h1
-  line-height: 0.9
-  letter-spacing: -0.05em
+  font-weight: 700
+  letter-spacing: -0.042em
 
 h2
   @extends .-fs-h2
-  line-height: 1.02
   letter-spacing: -0.03em
-
 
 h3
   @extends .-fs-h3
-  line-height: 1
   letter-spacing: -0.03em
 
 h4
   @extends .-fs-h4
-  line-height: 0.95
-  letter-spacing: -0.01em
-  margin: 0 0 15px
 
 h5
   @extends .-fs-h5
-  font-weight: 400
-  line-height: 1.15
-  letter-spacing: -0.03em
 
 h6
   @extends .-fs-h6
-  margin: 0 0 5px
-  font-family: $ff-base
-  font-weight: 400
-  line-height: 1.2
-  letter-spacing: 0.05em
-  text-transform: uppercase
-  color: #000
 
