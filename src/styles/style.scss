@@ -1,0 +1,15 @@
+// Always define your charset and at the top of the css file
+@charset "utf-8";
+
+// Import third party css like normalize.css
+@import "../../node_modules/normalize.css/normalize";
+
+// Import core modules
+@import "core/_settings";
+@import "core/_mixins";
+@import "core/_fonts";
+@import "core/_extends";
+
+// Import our modules here
+@import "modules/module-a";
+@import "modules/module-b";

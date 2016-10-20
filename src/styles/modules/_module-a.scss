@@ -1,0 +1,21 @@
+.ModuleA {
+  color: #000;
+  background: #000;
+}
+
+.ModuleA-list {
+  list-style: none;
+}
+
+.ModuleA-list-item {
+  background: #c00;
+}
+
+
+// Example of @media-max mixin
+.media-a {
+  width: 400px;
+  @include media-max(980px) {
+    max-width: 100%;
+  }
+}

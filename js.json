@@ -1,0 +1,11 @@
+{
+  "all": {
+    "filename": "all.js",
+    "dest": "build/js",
+    "src": [
+      "node_modules/jquery/dist/jquery.js",
+      "src/js/a.js",
+      "src/js/b.js"
+    ]
+  }
+}

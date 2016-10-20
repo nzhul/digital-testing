@@ -1,0 +1,6 @@
+{
+  "libs": ["browser", "ecma6", "es2015"],
+  "plugins": {
+    "node": {}
+  }
+}
