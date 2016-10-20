@@ -47,6 +47,6 @@
     "dev": "gulp dev",
     "start": "gulp dev",
     "build": "gulp build",
-    "server": "http-server ./build  -p 3200 -c-1 -o"
+    "server": "http-server ./build  -p 3400 -c-1 -o"
   }
 }

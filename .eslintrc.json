@@ -1,4 +1,7 @@
 {
   "extends": ["standard"],
-  "rules": { "space-before-function-paren": ["error", "never"] }
+  "rules": {
+    "space-before-function-paren": ["error", "never"],
+    "brace-style": ["error", "stroustrup", { "allowSingleLine": true }]
+  }
 }

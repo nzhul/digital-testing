@@ -14,7 +14,7 @@ const jsloader = {
 
 const bundles = {
   entry: {
-    [`all-${version}`]: './src/js/all.js'
+    [`_index-${version}`]: './src/js/_index.js'
   },
   output: {
     path: './build/js',

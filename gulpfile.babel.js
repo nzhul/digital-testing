@@ -43,8 +43,8 @@ const STYLUS_FILES = './src/styles/*.styl'
 const STYLUS_FILES_ALL = './src/styles/**/*.styl'
 
 const ICONFONT_SVG_FILES = './src/iconfont/**/*.svg'
-const ICONFONT_CSS_FILE = './src/iconfont/_few-icon-font.css'
-const ICONFONT_HTML_FILE = './src/iconfont/_few-icon-font.html'
+const ICONFONT_CSS_FILE = './src/iconfont/_lambda-icon-font.css'
+const ICONFONT_HTML_FILE = './src/iconfont/_lambda-icon-font.html'
 
 // No need to write css prefixes by hand
 // Autoprefixer is a great tool that handles this automatically with minimal configuration
@@ -112,13 +112,14 @@ const cssdev = () => {
     .pipe(stylus({ 'include css': true }))
     .on('error', onerror)
     .pipe(sourcemaps.write())
+    .pipe(rename({ suffix: `-${config.version}` }))
     .pipe(gulp.dest(DEST_CSS))
     .pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))
     .on('error', onerror)
     .on('error', () => { err = true })
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(DEST_CSS))
-    .on('finish', () => !err && notify('sass OK'))
+    .on('finish', () => !err && notify('stylus OK'))
 }
 
 // Compile sass for files ready for production
@@ -146,7 +147,7 @@ const font = {
   hash: '',
   className: '-i',
   fontPath: 'iconfont',
-  fontName: 'few-icon-font',
+  fontName: 'lambda-icon-font',
 
   once() {
     gulp.tasks['css'].dep = []
