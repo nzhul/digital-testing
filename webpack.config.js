@@ -18,7 +18,7 @@ const bundles = {
   },
   output: {
     path: './build/js',
-    filename: '[name].bundle.js'
+    filename: '[name].min.js'
   },
   module: {
     loaders: [jsloader]
