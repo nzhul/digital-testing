@@ -1,6 +1,7 @@
 'use strict'
 
 import webpack from 'webpack'
+import { version } from './package.json'
 
 const jsloader = {
   test: /\.jsx?$/,
@@ -13,9 +14,7 @@ const jsloader = {
 
 const bundles = {
   entry: {
-    'all': './src/js/all.js',
-    'page-a': './src/js/page-a.js',
-    'page-b': './src/js/page-b.js'
+    [`all-${version}`]: './src/js/all.js'
   },
   output: {
     path: './build/js',
@@ -30,6 +29,7 @@ const bundles = {
 const plugins = [ new webpack.optimize.UglifyJsPlugin({ sourceMap: true }) ]
 
 const config = {
+  version: version,
   dev: Object.assign({}, bundles),
   dist: Object.assign({}, bundles, { plugins })
 }

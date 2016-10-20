@@ -18,6 +18,7 @@ import eslint from 'gulp-eslint'
 import concat from 'gulp-concat'
 import rename from 'gulp-rename'
 import stylus from 'gulp-stylus'
+import replace from 'gulp-replace'
 import postcss from 'gulp-postcss'
 import iconfont from 'gulp-iconfont'
 import imagemin from 'gulp-imagemin'
@@ -36,11 +37,10 @@ const DEST_DOCS_VIEWS = './build/docs/views'
 const DEST_ICONFONT = './build/iconfont'
 
 const JS_FILES = './src/js/**/*'
+const HTML_FILES = './src/*.html'
 const IMAGE_FILES = './src/img/**/*'
 const STYLUS_FILES = './src/styles/*.styl'
 const STYLUS_FILES_ALL = './src/styles/**/*.styl'
-// const SASS_FILES = './src/styles/*.scss'
-// const SASS_FILES_ALL = './src/styles/**/*.scss'
 
 const ICONFONT_SVG_FILES = './src/iconfont/**/*.svg'
 const ICONFONT_CSS_FILE = './src/iconfont/_few-icon-font.css'
@@ -130,6 +130,7 @@ const cssdist = () => {
     .pipe(stylus({ 'include css': true }))
     .on('error', onerror)
     .pipe(postcss([ autoprefixer({ browsers: AUTOPREFIXER_BROWSERS, cascade: false }), mqpacker() ]))
+    .pipe(rename({ suffix: `-${config.version}` }))
     .pipe(gulp.dest(DEST_CSS))
     .pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))
     .on('error', onerror)
@@ -206,6 +207,12 @@ const js = (done) => {
   })
 }
 
+const html = () => {
+  return gulp.src(HTML_FILES)
+    .pipe(replace('{{version}}', config.version))
+    .pipe(gulp.dest(DEST))
+}
+
 const onsuccess = () => {
   log('Build complete!')
   return gulp.src(DEST + '**/*')
@@ -224,6 +231,7 @@ const onerror = (error) => {
 const watch = () => {
   failsafe = true
   gulp.watch(JS_FILES, ['js']).on('change', eventlog)
+  gulp.watch(HTML_FILES, ['html']).on('change', eventlog)
   gulp.watch(IMAGE_FILES, ['images']).on('change', eventlog)
   gulp.watch(STYLUS_FILES_ALL, ['css']).on('change', eventlog)
   log('watching now...')
@@ -235,13 +243,14 @@ const watch = () => {
 // See `package.json` for more details
 gulp.task('dev', ['build'], watch)
 gulp.task('default', ['build'], watch)
-gulp.task('build', ['clean', 'copy', 'iconfont', 'css', 'images', 'js'], onsuccess)
+gulp.task('build', ['clean', 'copy', 'iconfont', 'css', 'images', 'js', 'html'], onsuccess)
 
-gulp.task('clean', () => del.sync(DEST))
 gulp.task('copy', copy)
 gulp.task('lint', lint)
+gulp.task('html', html)
 gulp.task('images', images)
 gulp.task('js', ['lint'], js)
+gulp.task('clean', () => del.sync(DEST))
 
 gulp.task('iconfont-hash', font.invalidate)
 gulp.task('iconfont-create', ['iconfont-hash'], font.create)
