@@ -9,18 +9,20 @@
   h2
     @extend h4
     padding: 4px
-    border-bottom: 3px solid deeppink
+    border-bottom: 3px dashed deeppink
 
 
-  ul
-    font-size: 17px
+ul
+  font-size: 17px
+  margin: 0
+  padding: 0
+  list-style: none
+
+  > li
     margin: 0
     padding: 0
 
-    > li
-      margin: 10px
-      padding: 10px
+  > li > a
+    padding: 10px
+    display: block
 
-    > li:hover
-      color: #fff
-      background: alpha(#000, .5)
