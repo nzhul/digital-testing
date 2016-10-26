@@ -3,6 +3,31 @@
   background: #33495f
 
   a
-    color: alpha(#fff, .5)
+    display: block
+    padding: 0 15px
+    color: #fff
     text-decoration: none
-    font: 400 14px/22px $ff-sans
+    font: 400 14px/48px $ff-sans
+
+    &:hover, &:focus
+      color: #fff
+      background-color: rgba(245,247,248,0.1)
+
+    > i
+      display: inline-block
+      margin-right: 4px
+
+  a.is-active
+    color: #3598db
+    background: #fff
+
+
+  li:first-child > a
+    padding-left: 10px
+
+  li:first-child > a > i
+    width: 24px
+    height: 24px
+    line-height: 24px
+    text-align: center
+    background: #2d3e50
