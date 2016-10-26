@@ -255,8 +255,8 @@ const onerror = function onerror(error) {
 const watch = () => {
   failsafe = true
   gulp.watch(JS_FILES, ['js']).on('change', eventlog)
-  gulp.watch(HTML_FILES, ['html']).on('change', eventlog)
-  gulp.watch(HTML_VIEWS, ['views']).on('change', eventlog)
+  // gulp.watch(HTML_FILES, ['views']).on('change', eventlog)
+  gulp.watch([HTML_TEMPLATE, HTML_VIEWS], ['views']).on('change', eventlog)
   gulp.watch(IMAGE_FILES, ['images']).on('change', eventlog)
   gulp.watch(STYLUS_FILES_ALL, ['css']).on('change', eventlog)
   log('watching now...')
@@ -268,7 +268,7 @@ const watch = () => {
 // See `package.json` for more details
 gulp.task('dev', ['build'], watch)
 gulp.task('default', ['build'], watch)
-gulp.task('build', ['clean', 'copy', 'iconfont', 'css', 'images', 'js', 'html', 'views'], onsuccess)
+gulp.task('build', ['clean', 'copy', 'iconfont', 'css', 'images', 'js', 'views'], onsuccess)
 
 gulp.task('copy', copy)
 gulp.task('lint', lint)
