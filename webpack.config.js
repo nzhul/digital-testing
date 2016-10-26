@@ -14,7 +14,9 @@ const jsloader = {
 
 const bundles = {
   entry: {
-    [`_index-${version}`]: './src/js/_index.js'
+    [`_index-${version}`]: './src/js/_index.js',
+    'sitefinity-cms': './src/js/sitefinity-cms.js',
+    'basic-tests': './src/js/basic-tests.js'
   },
   output: {
     path: './build/js',

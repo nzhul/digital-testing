@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>λ Lambda</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+	<link rel="stylesheet" href="css/ui-{{version}}.min.css">
+
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0
+		}
+		
+		.flex-box {
+			display: flex;
+			flex-flow: column;
+			height: 100%;
+		}
+		
+		.flex-box .flex-row.header {
+			flex: 0 1 auto;
+		}
+		
+		.flex-box .flex-row.content {
+			flex: 1 1 auto;
+		}
+		
+		#content-wrapper {
+			position: relative;
+		}
+		
+		.content-section {
+			position: absolute;
+			height: 100%
+		}
+		
+		#site-content {
+			right: 300px;
+			left: 0;
+			overflow: hidden;
+		}
+		
+		#site-content iframe {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+		
+		#tests-setup {
+			right: 0;
+			width: 300px;
+            overflow: auto;
+		}
+		
+		#highlighter {
+			position: absolute;
+			border: 1px solid blue;
+			background-color: rgba(0, 0, 255, 0.18);
+			pointer-events: none;
+		}
+
+        .editable {
+            display: inline-block;
+        }
+
+        .editable > a {
+            vertical-align: middle;
+            font-size: 28px;
+        }
+	</style>
+</head>
+
+<body>
+	<main class="flex-box">
+
+		<header class="flex-row header">
+			<div class="container">
+				<h1 class="-tac -m0">Mnogo Golqm Kor</h1>
+			</div>
+		</header>
+
+		<div id="content-wrapper" class="flex-row content">
+			<div id="site-content" class="content-section">
+				<div id="highlighter"></div>
+				<iframe src="https://wwwdev.progress.com" frameborder="0"></iframe>
+			</div>
+			<aside id="tests-setup" class="content-section">
+				some content
+				<input id="selectorInput" type="text" />
+				<button id="selectBtn">select</button>
+
+                <span class="editable">John2</span>
+
+				<ul id="testPanel">
+                    <li>
+                        <span class="k-link k-state-selected">
+                            <span class="editable">John</span>
+                        </span>
+                    <div style="padding: 10px;">
+                        <div class="teamMate">
+                            <img src="../content/web/panelbar/andrew.jpg" alt="Andrew Fuller">
+                            <div class="details">
+                                <h2>Andrew Fuller</h2>
+                                <p>Team Lead</p>
+                            </div>
+                        </div>
+                        <div class="teamMate">
+                            <img src="../content/web/panelbar/nancy.jpg" alt="Nancy Leverling">
+                            <div class="details">
+                                <h2>Nancy Leverling</h2>
+                                <p>Sales Associate</p>
+                            </div>
+                        </div>
+                        <div class="teamMate">
+                            <img src="../content/web/panelbar/robert.jpg" alt="Robert King">
+                            <div class="details">
+                                <h2>Robert King</h2>
+                                <p>Business System Analyst</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    </li>
+				</ul>
+
+			</aside>
+		</div>
+
+	</main>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="js/kendo.all.min.js"></script>
+	<script src="js/_index-{{version}}.min.js"></script>
+    <script src="js/basic-tests.min.js"></script>
+
+</body>
+
+</html>
