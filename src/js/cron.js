@@ -1,4 +1,9 @@
-﻿var myWindow = $("#scheduling-dialog"),
+(function() {
+'use strict'
+
+if (!document.querySelector('#scheduling-dialog')) return
+
+var myWindow = $("#scheduling-dialog"),
     schedulingBtn = $(".scheduling-button");
 
 schedulingBtn.click(function () {
@@ -152,3 +157,4 @@ function period_change(e) {
         time2.wrapper.hide();
     }
 }
+})()

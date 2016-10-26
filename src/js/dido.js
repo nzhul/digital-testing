@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
+  'use strict'
+  if (!document.querySelector('#tabstrip')) return
 
 	$("#tabstrip").kendoTabStrip({
 		animation: {
@@ -110,7 +112,7 @@
 	// upload modal end
 
 
-	// scheduling modal 
+	// scheduling modal
 
 	//var myWindow = $("#scheduling-dialog"),
 	//schedulingBtn = $(".scheduling-button");
