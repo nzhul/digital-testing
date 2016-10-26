@@ -1,17 +1,27 @@
+<style is="custom-style">
+  paper-checkbox.green {
+    --paper-checkbox-checked-color: var(--paper-green-500);
+    --paper-checkbox-checked-ink-color: var(--paper-green-500);
+    --paper-checkbox-unchecked-color: var(--paper-green-900);
+    --paper-checkbox-unchecked-ink-color: var(--paper-green-900);
+    /*--paper-checkbox-label-color: var(--paper-green-500);*/
+  }
+</style>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-6">
       <h1>Setup Your Testing Environment...</h1>
-
+      <br><br>
       <form action="#" novalidate>
         <div class="form-field">
-          <paper-checkbox>Basic</paper-checkbox>
+          <paper-checkbox class="green">Basic</paper-checkbox>
         </div>
 
         <div class="form-field">
-          <paper-checkbox style="width:220px">Telerik Testing Framework</paper-checkbox>
-
-
+          <paper-checkbox class="green" style="width:220px">Telerik Testing Framework</paper-checkbox>
           <paper-dropdown-menu label="Test Executor">
             <paper-listbox class="dropdown-content">
               <paper-item>NUnit</paper-item>
@@ -21,8 +31,7 @@
         </div>
 
         <div class="form-field">
-          <paper-checkbox style="width:220px">Selenium WebDriver</paper-checkbox>
-
+          <paper-checkbox class="green" style="width:220px">Selenium WebDriver</paper-checkbox>
           <paper-dropdown-menu label="Test Executor">
             <paper-listbox class="dropdown-content">
               <paper-item>NUnit</paper-item>
@@ -35,6 +44,23 @@
           <paper-button raised class="custom">Start Setup</paper-button>
         </div>
       </form>
+
+
+
+      <section id="success">
+        <p>Setting up environment...</p>
+        <style is="custom-style">
+          paper-progress {
+            width: 430px !important
+          }
+          paper-progress.slow {
+            --paper-progress-indeterminate-cycle-duration: 20s;
+          }
+        </style>
+        <paper-progress indeterminate></paper-progress>
+        <br>
+        <paper-progress indeterminate class="slow"></paper-progress>
+      </section>
 
     </div>
   </div>
