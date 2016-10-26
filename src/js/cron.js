@@ -1,25 +1,28 @@
-﻿var myWindow = $("#window"),
-    undo = $("#undo");
+﻿var myWindow = $("#scheduling-dialog"),
+    schedulingBtn = $(".scheduling-button");
 
-undo.click(function () {
+schedulingBtn.click(function () {
     myWindow.data("kendoWindow").open();
-    undo.fadeOut();
+    //schedulingBtn.fadeOut();
 });
 
 function onClose() {
-    undo.fadeIn();
+    //schedulingBtn.fadeIn();
 }
 
 myWindow.kendoWindow({
-    width: "650px",
+	width: "650px",
+	height: "120px",
     maxWidth: "650px",
     title: "Scheduling tests run",
     visible: false,
+    modal: true,
+    position: {top:"170px", left:"55%"},
     actions: [
         "Close"
     ],
     close: onClose
-}).data("kendoWindow").center().open();
+}).data("kendoWindow");
 
 
 

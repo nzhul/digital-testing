@@ -1,0 +1,84 @@
+﻿<style>
+	/*Table CSS*/
+
+	table {
+		width: 100%;
+		text-align: left;
+		border-collapse: collapse;
+		border: 1px solid #cbcbcb;
+		box-shadow: 2px 2px 0px #cbcbcb;
+	}
+
+		table th {
+			padding: 8px;
+			font-weight: bold;
+			font-size: 14px;
+			color: gray;
+			border-bottom: 1px solid #cbcbcb;
+			background: #e5e5e5;
+		}
+
+		table td {
+			padding: 5px 5px 5px 5px;
+			color: gray;
+		}
+
+		table tbody tr:hover td {
+			color: #6a6a6a;
+			background: #e5e5e5;
+		}
+
+		table tr {
+			border-bottom: 1px dashed #cbcbcb;
+		}
+
+	/*Table CSS END*/
+
+	#loading-box {
+		height: 900px;
+		background-color: #F5F7F8;
+		text-align: center;
+		line-height: 900px;
+		font-size: 20px;
+	}
+
+		.test-fail {
+		color: #EB0001;
+		font-size:20px;
+		margin-bottom:15px;
+	}
+
+</style>
+
+
+<div id="loading-box">
+	Loading
+	<img src="img/loading.gif" alt="" />
+</div>
+<div class="layout-container" style="display:none;">
+	<div class="row">
+		<div class="col-12">
+			<h5>Testing</h5>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<p style="margin-top:-10px;"><strong>Test name:</strong> <span style="color:gray;">CompanyFrontend.VerifyCompanyPage</span></p>
+			<p style="margin-top:-10px;"><strong>Tested page:</strong> <span style="color:gray;">http://www.progress.com/company/about</span></p>
+			<span class="test-fail"><i class="fa fa-circle test-fail"></i> Failed</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			<h5>Screenshots:</h5>
+		</div>
+		<div class="col-4">
+			<h5>Video:</h5>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<h5>Stack trace:</h5>
+		</div>
+	</div>
+</div>
