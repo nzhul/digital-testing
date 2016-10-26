@@ -1,80 +1,85 @@
-﻿	<style>
-		.layout-container {
-			padding: 20px;
-			background-color: #F5F7F8;
-			box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.29);
-			height: 1000px;
-		}
+﻿<style>
+	.layout-container {
+		padding: 20px;
+		background-color: #F5F7F8;
+		box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.29);
+		height: 1000px;
+	}
 
-		.sidebar-navigation-selected:hover {
-			background-color: #F5F7F8 !important;
-		}
+	.sidebar-navigation-selected:hover {
+		background-color: #F5F7F8 !important;
+	}
 
-		/*Table CSS*/
+	/*Table CSS*/
 
-		table {
+	table {
 		width: 100%;
 		text-align: left;
 		border-collapse: collapse;
 		border: 1px solid #cbcbcb;
 		box-shadow: 2px 2px 0px #cbcbcb;
-		}
+	}
 
 		table th {
-		padding: 8px;
-		font-weight: bold;
-		font-size: 14px;
-		color: gray;
-		border-bottom: 1px solid #cbcbcb;
-		background: #e5e5e5;
+			padding: 8px;
+			font-weight: bold;
+			font-size: 14px;
+			color: gray;
+			border-bottom: 1px solid #cbcbcb;
+			background: #e5e5e5;
 		}
 
 		table td {
-		padding: 5px 5px 5px 5px;
-		color: gray;
-		}
-
-		table tbody tr:hover td {
-		color: #6a6a6a;
-		background: #e5e5e5;
-		}
-
-		table tr {
-		border-bottom: 1px dashed #cbcbcb;
-		}
-
-		/*Table CSS END*/
-
-		.test-success {
-			color: #86CB35;
-		}
-
-		.test-fail {
-			color: #EB0001;
-		}
-
-		.add-btn {
-			margin: 10px 0 0 0px;
-			height: 30px;
-			width: 150px;
-			background-color: #86CB35;
-			color: white;
-		}
-
-		.scheduling-button {
-			float: right;
-			margin-right: 15px;
+			padding: 5px 5px 5px 5px;
 			color: gray;
 		}
 
-		#loading-box {
-			height: 900px;
-			background-color: #F5F7F8;
-			text-align: center;
-			line-height: 900px;
-			font-size: 20px;
+		table tbody tr:hover td {
+			color: #6a6a6a;
+			background: #e5e5e5;
 		}
-	</style>
+
+		table tr {
+			border-bottom: 1px dashed #cbcbcb;
+		}
+
+	/*Table CSS END*/
+
+	.test-success {
+		color: #86CB35;
+	}
+
+	.test-fail {
+		color: #EB0001;
+	}
+
+	.add-btn {
+		margin: 10px 0 0 0px;
+		height: 30px;
+		width: 150px;
+		background-color: #86CB35;
+		color: white;
+	}
+
+	.scheduling-button {
+		float: right;
+		margin-right: 15px;
+		color: gray;
+	}
+
+	#loading-box {
+		height: 900px;
+		background-color: #F5F7F8;
+		text-align: center;
+		line-height: 900px;
+		font-size: 20px;
+	}
+
+	.upload-package-button {
+		color:#3F51B5;
+		text-decoration: none;
+	}
+</style>
 
 
 <div id="loading-box">
@@ -94,9 +99,6 @@
 				</li>
 				<li>
 					Selenium
-				</li>
-				<li>
-					Other
 				</li>
 			</ul>
 			<div>
@@ -799,13 +801,22 @@
 				<button class="add-new-test-btn add-btn add-new-suite-btn" style="float:right;"><i class="fa fa-plus" style="margin-left:-15px;margin-right:5px;"></i> Add test suite</button>
 			</div>
 			<div>
-				<a href="#">Upload Package</a>
+				<div style="text-align:center;">
+					<a href="#" class="upload-package-button js-upload-package-modal">
+						<i class="fa fa-archive" style="font-size:80px;"></i><br />
+						<strong>UPLOAD PACKAGE</strong>
+					</a>
+					<p>Required: <br/>TestStudio version: 1.254.487.1 <a href="#" style="color:#3F51B5;text-decoration:none;">[Change]</a></p>
+				</div>
 			</div>
 			<div>
-				Selenium Content
-			</div>
-			<div>
-				Other framework content
+				<div style="text-align:center;">
+					<a href="#" class="upload-package-button js-upload-package-modal">
+						<i class="fa fa-archive" style="font-size:80px;"></i><br />
+						<strong>UPLOAD PACKAGE</strong>
+					</a>
+					<p>Required: <br />Selenium version: 1.254.487.1 <a href="#" style="color:#3F51B5;text-decoration:none;">[Change]</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -815,5 +826,11 @@
 <div id="add-new-test-dialog">
 	<strong>Page name:</strong><br />
 	http://www.progress.com/ <input id="pages" style="width: 50%;" />
-	<button class="add-btn" style="width:70px;"><i class="fa fa-plus" style="margin-left:-10px;margin-right:5px;"></i>Add</button>
+	<button class="add-btn js-add-test-btn" style="width:70px;"><i class="fa fa-plus" style="margin-left:-10px;margin-right:5px;"></i>Add</button>
+</div>
+
+<div id="upload-package-dialog">
+	<h5>TestStudio Package:</h5>
+	<input type="file" value="" />
+
 </div>

@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
 	$("#tabstrip").kendoTabStrip({
 		animation: {
 			open: {
@@ -6,30 +7,22 @@
 			}
 		}
 	});
-});
 
-$(document).ready(function () {
 	$("#panelbar").kendoPanelBar({
 		expandMode: "single"
 	});
-});
 
-$(document).ready(function () {
 	$('#loading-box').hide();
 	$('.layout-container').show();
-})
 
-$(document).ready(function () {
 	$('.scheduling-button').on('click', function (even) {
 		event.preventDefault();
 		event.stopPropagation();
 		alert('show scheduling dialog here');
 	});
-});
 
-$(document).ready(function () {
 	var myWindow = $("#add-new-test-dialog"),
-		schedulingBtn = $(".add-new-test-btn");
+	schedulingBtn = $(".add-new-test-btn");
 
 	schedulingBtn.click(function () {
 		myWindow.data("kendoWindow").open();
@@ -54,9 +47,7 @@ $(document).ready(function () {
 		],
 		close: onClose
 	}).data("kendoWindow").center();
-});
 
-	$(document).ready(function () {
 		var data = [
 			'webinars',
 			'papers',
@@ -78,4 +69,43 @@ $(document).ready(function () {
 			placeholder: "select page",
 			separator: ""
 		});
-	});
+
+		$('.js-add-test-btn').on('click', function () {
+			var urlName = $('#pages').val();
+			if (urlName) {
+				window.location = "/testbuilder?urlname=" + urlName;
+			}
+		});
+
+
+	// upload modal start
+
+	var uploadWindow = $("#upload-package-dialog"),
+	schedulingBtn = $(".upload-package-button");
+
+		schedulingBtn.click(function () {
+			uploadWindow.data("kendoWindow").open();
+			//schedulingBtn.hide();
+		});
+
+		function onClose() {
+			//schedulingBtn.show();
+		}
+
+	uploadWindow.kendoWindow({
+			width: "650px",
+			height: "150px;",
+			title: "Upload package",
+			visible: false,
+			modal: true,
+			actions: [
+				"Pin",
+				"Minimize",
+				"Maximize",
+				"Close"
+			],
+			close: onClose
+		}).data("kendoWindow").center();
+
+	// upload modal end
+});
