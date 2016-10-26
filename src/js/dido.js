@@ -13,3 +13,14 @@ $(document).ready(function () {
 		expandMode: "single"
 	});
 });
+
+$(document).ready(function () {
+	$('#loading-box').hide();
+	$('.layout-container').show();
+})
+
+$(document).ready(function () {
+	$('.scheduling-button').on('click', function () {
+		alert('sheduling');
+	})
+});
