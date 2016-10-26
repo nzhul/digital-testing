@@ -9,7 +9,7 @@
     "jquery": "^3.1.1",
     "normalize.css": "^5.0.0"
   },
-  "devdependencies": {
+  "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
