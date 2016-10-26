@@ -18,6 +18,7 @@ import eslint from 'gulp-eslint'
 import concat from 'gulp-concat'
 import rename from 'gulp-rename'
 import stylus from 'gulp-stylus'
+import flatmap from 'gulp-flatmap'
 import replace from 'gulp-replace'
 import postcss from 'gulp-postcss'
 import iconfont from 'gulp-iconfont'
@@ -38,6 +39,8 @@ const DEST_ICONFONT = './build/iconfont'
 
 const JS_FILES = './src/js/**/*'
 const HTML_FILES = './src/*.html'
+const HTML_VIEWS = './src/views/*.html'
+const HTML_TEMPLATE = './src/index.html'
 const IMAGE_FILES = './src/img/**/*'
 const STYLUS_FILES = './src/styles/*.styl'
 const STYLUS_FILES_ALL = './src/styles/**/*.styl'
@@ -217,6 +220,23 @@ const html = () => {
     .pipe(gulp.dest(DEST))
 }
 
+const render = (template, view) => {
+  let name = path.basename(view.path, '.html')
+  let content = view.contents.toString('utf8')
+  return gulp.src(template)
+    .pipe(replace('{{version}}', config.version))
+    .pipe(replace('{{views}}', content))
+    .pipe(rename({ basename: name }))
+    .pipe(gulp.dest(DEST))
+}
+
+const views = () => {
+  return gulp.src(HTML_VIEWS)
+    .pipe(flatmap((stream, file) => render(HTML_TEMPLATE, file)))
+    .on('finish', () => log('views OK'))
+}
+
+
 const onsuccess = () => {
   log('Build complete!')
   return gulp.src(DEST + '**/*')
@@ -236,6 +256,7 @@ const watch = () => {
   failsafe = true
   gulp.watch(JS_FILES, ['js']).on('change', eventlog)
   gulp.watch(HTML_FILES, ['html']).on('change', eventlog)
+  gulp.watch(HTML_VIEWS, ['views']).on('change', eventlog)
   gulp.watch(IMAGE_FILES, ['images']).on('change', eventlog)
   gulp.watch(STYLUS_FILES_ALL, ['css']).on('change', eventlog)
   log('watching now...')
@@ -247,11 +268,12 @@ const watch = () => {
 // See `package.json` for more details
 gulp.task('dev', ['build'], watch)
 gulp.task('default', ['build'], watch)
-gulp.task('build', ['clean', 'copy', 'iconfont', 'css', 'images', 'js', 'html'], onsuccess)
+gulp.task('build', ['clean', 'copy', 'iconfont', 'css', 'images', 'js', 'html', 'views'], onsuccess)
 
 gulp.task('copy', copy)
 gulp.task('lint', lint)
 gulp.task('html', html)
+gulp.task('views', views)
 gulp.task('images', images)
 gulp.task('js', js)
 gulp.task('clean', () => del.sync(DEST))
