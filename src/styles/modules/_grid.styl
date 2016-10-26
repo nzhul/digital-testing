@@ -1,0 +1,94 @@
+// ## Grid System
+
+// Grid settings
+// --------------------------------------------------
+$grid-columns = 12
+$grid-gutter-width = 30px
+
+// Media queries breakpoints
+// --------------------------------------------------
+$screen-min = 290px + $grid-gutter-width
+$screen-small = 560px + $grid-gutter-width
+$screen-modest = 740px + $grid-gutter-width
+$screen-normal = 930px + $grid-gutter-width
+$screen-medium = 1200px + $grid-gutter-width
+$screen-max = 1500px + $grid-gutter-width
+
+// Container settings
+$container-base-width = 1500px;
+// --------------------------------------------------
+
+// Common grid mixins
+// --------------------------------------------------
+grid-container()
+  margin-right: auto
+  margin-left:  auto
+  padding-left:  ($grid-gutter-width)
+  padding-right: ($grid-gutter-width)
+  box-sizing: border-box
+  @extend $clearfix
+
+
+grid-row()
+  margin-left:  ($grid-gutter-width / -2)
+  margin-right: ($grid-gutter-width / -2)
+  font-size: 0
+  box-sizing: border-box
+  @extend $clearfix
+
+
+grid-cols-setup($class)
+  for i in 1..$grid-columns
+    {$class}-{i}
+      @extend $col-common
+      width: (i / $grid-columns) * 100%
+
+  // offsets
+  for i in 1..$grid-columns
+    {$class}--offset-{i}
+      margin-left: (i / $grid-columns) * 100%
+
+// Generate grid system
+// --------------------------------------------------
+.container
+  // max-width: $container-base-width + $grid-gutter-width * 2
+  max-width: 100%
+  grid-container()
+
+.row
+  grid-row()
+
+// Common styles for grid columns
+$col-common
+  box-sizing: border-box
+  position: relative
+  display: inline-block
+  min-height: 1px
+  padding-left:  ($grid-gutter-width / 2)
+  padding-right: ($grid-gutter-width / 2)
+  font-size: $base-font-size
+  vertical-align: top
+
+grid-cols-setup('.col')
+
+// responsive-grid($gutter = 20px, $block = false)
+//   .container
+//     padding-left: $gutter
+//     padding-right: $gutter
+//   .row
+//     margin-left: ($gutter / -2)
+//     margin-right: ($gutter / -2)
+//   [class*="col-"]
+//     padding-left: ($gutter / 2)
+//     padding-right: ($gutter / 2)
+//     // comment because of high `:not` specifity
+//     // if $block
+//     //   &:not(.col--no-stack)
+//     //     width: 100%
+//     //     display: block
+
+// +media-max(944px)
+//   responsive-grid(20px)
+
+// +media-max(420px)
+//   responsive-grid(10px, true)

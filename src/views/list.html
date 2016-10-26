@@ -1,80 +1,131 @@
-﻿	<style>
-		.layout-container {
-			padding: 20px;
-			background-color: #F5F7F8;
-			box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.29);
-			height: 1000px;
-		}
+﻿<style>
+	.layout-container {
+		padding: 20px;
+		background-color: #F5F7F8;
+		box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.29);
+		height: 1000px;
+	}
 
-		.sidebar-navigation-selected:hover {
-			background-color: #F5F7F8 !important;
-		}
+	.sidebar-navigation-selected:hover {
+		background-color: #F5F7F8 !important;
+	}
 
-		/*Table CSS*/
+	/*Table CSS*/
 
-		table {
+	table {
 		width: 100%;
 		text-align: left;
 		border-collapse: collapse;
 		border: 1px solid #cbcbcb;
 		box-shadow: 2px 2px 0px #cbcbcb;
-		}
+	}
 
 		table th {
-		padding: 8px;
-		font-weight: bold;
-		font-size: 14px;
-		color: gray;
-		border-bottom: 1px solid #cbcbcb;
-		background: #e5e5e5;
+			padding: 8px;
+			font-weight: bold;
+			font-size: 14px;
+			color: gray;
+			border-bottom: 1px solid #cbcbcb;
+			background: #e5e5e5;
 		}
 
 		table td {
-		padding: 5px 5px 5px 5px;
-		color: gray;
-		}
-
-		table tbody tr:hover td {
-		color: #6a6a6a;
-		background: #e5e5e5;
-		}
-
-		table tr {
-		border-bottom: 1px dashed #cbcbcb;
-		}
-
-		/*Table CSS END*/
-
-		.test-success {
-			color: #86CB35;
-		}
-
-		.test-fail {
-			color: #EB0001;
-		}
-
-		.add-btn {
-			margin: 10px 0 0 0px;
-			height: 30px;
-			width: 150px;
-			background-color: #86CB35;
-			color: white;
-		}
-
-		.scheduling-button {
-			float: right;
-			margin-right: 15px;
+			padding: 5px 5px 5px 5px;
 			color: gray;
 		}
 
-		#loading-box {
-			height: 900px;
-			background-color: #F5F7F8;
-			text-align: center;
-			line-height: 900px;
-			font-size: 20px;
+		table tbody tr:hover td {
+			color: #6a6a6a;
+			background: #e5e5e5;
 		}
-	</style>
+
+		table tr {
+			border-bottom: 1px dashed #cbcbcb;
+		}
+
+	/*Table CSS END*/
+
+	.test-success {
+		color: #86CB35;
+	}
+
+	.test-fail {
+		color: #EB0001;
+	}
+
+	.add-btn {
+		margin: 10px 0 0 0px;
+		height: 30px;
+		width: 150px;
+		background-color: #86CB35;
+		color: white;
+	}
+
+	.scheduling-button {
+		float: right;
+		margin-right: 15px;
+		color: gray;
+	}
+
+	#loading-box {
+		height: 900px;
+		background-color: #F5F7F8;
+		text-align: center;
+		line-height: 900px;
+		font-size: 20px;
+	}
+
+	.upload-package-button {
+		color:#3F51B5;
+		text-decoration: none;
+	}
+
+	.test-result {
+		width:50px;
+		height:10px;
+		border-radius:5px;
+		float:right;
+		position:relative;
+		top:13px;
+		left:-20px;
+	}
+
+
+	.test-result-0 {
+		background-color: #E10000
+	}
+
+	.test-result-40 {
+		background-color: #ff6a00
+	}
+
+	.test-result-80 {
+		background-color: #ffd800
+	}
+
+	.test-result-100 {
+		background-color:  #86CB35;
+	}
+
+
+	.running-test {
+	  animation: blink-animation 500ms steps(5, start) infinite alternate;
+	  -webkit-animation: blink-animation 500ms steps(5, start) infinite alternate;
+	}
+	@keyframes blink-animation {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+
+		@keyframes blink-animation2 {
+		from { opacity: 1; }
+		to   { opacity: 0; }
+	}
+	@-webkit-keyframes blink-animation {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+</style>
 
 
 <div id="loading-box">
@@ -95,9 +146,6 @@
 				<li>
 					Selenium
 				</li>
-				<li>
-					Other
-				</li>
 			</ul>
 			<div>
 				<ul id="panelbar">
@@ -107,6 +155,7 @@
 							<a title="Scheduling" href="#" class="scheduling-button">
 								<i class="fa fa-calendar"></i>
 							</a>
+							<div class="test-result test-result-100"></div>
 						</span>
 						<div style="padding: 10px;">
 							<table class="report-table">
@@ -261,7 +310,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
+											<a href="#"><i class="fa fa-circle test-success"></i></a>
 										</td>
 									</tr>
 								</tbody>
@@ -275,6 +324,7 @@
 							<a title="Scheduling" href="#" class="scheduling-button">
 								<i class="fa fa-calendar"></i>
 							</a>
+							<div class="test-result test-result-0"></div>
 						</span>
 						<div style="padding: 10px;">
 							<table class="report-table">
@@ -301,7 +351,7 @@
 											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -317,7 +367,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -333,7 +383,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -349,7 +399,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -364,8 +414,8 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -381,7 +431,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -395,9 +445,9 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -412,8 +462,8 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
+											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -443,6 +493,7 @@
 							<a title="Scheduling" href="#" class="scheduling-button">
 								<i class="fa fa-calendar"></i>
 							</a>
+							<div class="test-result test-result-100 running-test"></div>
 						</span>
 						<div style="padding: 10px;">
 							<table class="report-table">
@@ -466,7 +517,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
+											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
@@ -478,14 +529,14 @@
 										<td>4 min 55 sec</td>
 										<td>3 days 18 hr</td>
 										<td>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#" class="running-test"><i class="fa fa-circle test-success"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -517,7 +568,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#" class="running-test"><i class="fa fa-circle test-success"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -526,8 +577,8 @@
 										<td>21 min 15 sec</td>
 										<td>12 days 18 hr</td>
 										<td>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
+											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
@@ -544,60 +595,12 @@
 										<td>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td>7</td>
-										<td>ProgressCom.Documentations.TestCases.DocumentationsFrontend.CheckDocumentationsPageIsAccessible</td>
-										<td>15 min 50 sec</td>
-										<td>2 days 18 hr</td>
-										<td>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td>8</td>
-										<td>ProgressCom.Documentations.TestCases.DocumentationsFrontend.CheckDocumentationsPageLinks</td>
-										<td>10 min 10 sec</td>
-										<td>20 days 18 hr</td>
-										<td>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-										</td>
-									</tr>
-									<tr>
-										<td>9</td>
-										<td>ProgressCom.Leadership.Backend.TestCases.LeadershipBackend.CreateEditDeleteLeader</td>
-										<td>40 min 20 sec</td>
-										<td>1 min 5 sec</td>
-										<td>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-fail"></i></a>
 										</td>
 									</tr>
 								</tbody>
@@ -611,6 +614,7 @@
 							<a title="Scheduling" href="#" class="scheduling-button">
 								<i class="fa fa-calendar"></i>
 							</a>
+							<div class="test-result test-result-40"></div>
 						</span>
 						<div style="padding: 10px;">
 							<table class="report-table">
@@ -799,13 +803,22 @@
 				<button class="add-new-test-btn add-btn add-new-suite-btn" style="float:right;"><i class="fa fa-plus" style="margin-left:-15px;margin-right:5px;"></i> Add test suite</button>
 			</div>
 			<div>
-				<a href="#">Upload Package</a>
+				<div style="text-align:center;">
+					<a href="#" class="upload-package-button js-upload-package-modal">
+						<i class="fa fa-archive" style="font-size:80px;"></i><br />
+						<strong>UPLOAD PACKAGE</strong>
+					</a>
+					<p>Required: <br/>TestStudio version: 1.254.487.1 <a href="#" style="color:#3F51B5;text-decoration:none;">[Change]</a></p>
+				</div>
 			</div>
 			<div>
-				Selenium Content
-			</div>
-			<div>
-				Other framework content
+				<div style="text-align:center;">
+					<a href="#" class="upload-package-button js-upload-package-modal">
+						<i class="fa fa-archive" style="font-size:80px;"></i><br />
+						<strong>UPLOAD PACKAGE</strong>
+					</a>
+					<p>Required: <br />Selenium version: 1.254.487.1 <a href="#" style="color:#3F51B5;text-decoration:none;">[Change]</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -815,5 +828,11 @@
 <div id="add-new-test-dialog">
 	<strong>Page name:</strong><br />
 	http://www.progress.com/ <input id="pages" style="width: 50%;" />
-	<button class="add-btn" style="width:70px;"><i class="fa fa-plus" style="margin-left:-10px;margin-right:5px;"></i>Add</button>
+	<button class="add-btn js-add-test-btn" style="width:70px;"><i class="fa fa-plus" style="margin-left:-10px;margin-right:5px;"></i>Add</button>
+</div>
+
+<div id="upload-package-dialog">
+	<h5>TestStudio Package:</h5>
+	<input type="file" value="" />
+
 </div>
