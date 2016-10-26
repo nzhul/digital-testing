@@ -48,6 +48,10 @@
 		margin-bottom:15px;
 	}
 
+	.screenshot {
+		border: 5px solid gray;
+		height:200px;
+	}
 </style>
 
 
@@ -59,6 +63,7 @@
 	<div class="row">
 		<div class="col-12">
 			<h5>Testing</h5>
+			<hr style="border-bottom: 1px solid #d0d0d0;border-top: 0px; margin-top:-10px;margin-bottom: 25px;"/>
 		</div>
 	</div>
 	<div class="row">
@@ -71,14 +76,48 @@
 	<div class="row">
 		<div class="col-4">
 			<h5>Screenshots:</h5>
+			<a href="#"><img  class="screenshot" src="img/screenshot-example.png" alt="Alternate Text" /></a>
 		</div>
 		<div class="col-4">
 			<h5>Video:</h5>
+			<a href="#"><img class="screenshot" src="img/screenshot-example.png" alt="Alternate Text" /></a>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" style="margin-top:20px;">
+		<div class="col-12">
+			<h5>Error Message:</h5>
+			<p>Test method WebDivision.Tests.Progress.UITests.ProgressCom.Whitepapers.Backend.TestCases.PapersBackend.TryCreatePaperAllFieldsEmpty threw exception:
+WebDivision.UITests.Core.Exceptions.ElementTimeoutException:  TIMED OUT- for element with Find Expression:
+ id=?_actionsContainer_Publish
+ Element Name: WebDivision.UITests.Core.Extensions.Find.BaseBrowserFindExtensions`1.FindByIdEndingWithAndWait
+ URL: https://wwwsit.progress.com/sitefinity/content/papers#event=showWindow&winId=ctl04_paperBackendList_ctl00_ctl00_itemsGrid_ctl00_ctl00_create&autoMax=false
+Element Timeout: 60000</p>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px;">
 		<div class="col-12">
 			<h5>Stack trace:</h5>
+			<p>
+				at WebDivision.UITests.TestStudio.Engine.TestStudioDriver..ctor(Browsers currentBrowserType)
+				at WebDivision.UITests.Core.Engine.TestsExecutionEngine.<ResolveAllDriverDependencies>
+					b__0(IUnityContainer x)
+					at Microsoft.Practices.Unity.InjectionFactory.<>c__DisplayClass2.<.ctor>
+						b__0(IUnityContainer c, Type t, String s)
+						at Microsoft.Practices.ObjectBuilder2.FactoryDelegateBuildPlanPolicy.BuildUp(IBuilderContext context)
+						at Microsoft.Practices.ObjectBuilder2.BuildPlanStrategy.PreBuildUp(IBuilderContext context)
+						at Microsoft.Practices.ObjectBuilder2.StrategyChain.ExecuteBuildUp(IBuilderContext context)
+						at Microsoft.Practices.Unity.UnityContainer.DoBuildUp(Type t, Object existing, String name, IEnumerable`1 resolverOverrides)
+						--- End of inner exception stack trace ---
+						at Microsoft.Practices.Unity.UnityContainer.DoBuildUp(Type t, Object existing, String name, IEnumerable`1 resolverOverrides)
+						at Microsoft.Practices.Unity.UnityContainer.Resolve(Type t, String name, ResolverOverride[] resolverOverrides)
+						at Microsoft.Practices.Unity.UnityContainerExtensions.Resolve[T](IUnityContainer container, ResolverOverride[] overrides)
+						at WebDivision.UITests.Core.Engine.TestsExecutionEngine.ResolveAllDriverDependencies()
+						at WebDivision.UITests.Core.Behaviors.ExecutionEngineBehaviorObserver.PreTestInit(Object sender, TestExecutionEventArgs e)
+						at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+						at WebDivision.Tests.Core.Base.BaseTestCase.RaiseTestEvent(EventHandler`1 eventHandler, MemberInfo memberInfo)
+						at WebDivision.Tests.Core.Base.BaseTestCase.CoreTestInitInternal()
+						at WebDivision.UITests.Core.BaseUITestCase.CoreTestInit()
+			</p>
 		</div>
 	</div>
 </div>
