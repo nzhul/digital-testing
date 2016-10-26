@@ -1,0 +1,118 @@
+<style>	
+	.flex-box {
+		display: flex;
+		flex-flow: column;
+		height: 100%;
+	}
+	
+	.flex-box .flex-row.header {
+		flex: 0 1 auto;
+	}
+	
+	.flex-box .flex-row.content {
+		flex: 1 1 auto;
+	}
+	
+	#content-wrapper {
+		position: relative;
+		height: 100%;
+	}
+	
+	.content-section {
+		position: absolute;
+		height: 100%
+	}
+	
+	#site-content {
+		right: 300px;
+		left: 0;
+		overflow: hidden;
+	}
+	
+	#site-content iframe {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+	
+	#tests-setup {
+		right: 0;
+		width: 300px;
+		overflow: auto;
+	}
+	
+	#highlighter {
+		position: absolute;
+		border: 1px solid blue;
+		background-color: rgba(0, 0, 255, 0.18);
+		pointer-events: none;
+	}
+	
+	.editable {
+		display: inline-block;
+	}
+	
+	.editable .inline-edit-action {
+		vertical-align: middle;
+		font-size: 28px;
+		color: #2d3e50;
+	}
+	.editable input {
+		height: 13px;
+		padding: 3px;
+	}
+
+	#tests-setup .section-header {
+		background-color: #33495f;
+		color: hsla(0, 0%, 100%, .5);
+		font-size: 25px;
+		text-align: center;
+		padding: 5px 0;
+		position: relative;
+		border-bottom: 2px solid #2d3e50;
+	}
+
+	#tests-setup .section-header h2 {
+		margin: 0;
+		color: hsla(0, 0%, 100%, .5);
+		font-size: 25px;
+	}
+
+	#tests-setup .section-header .fa {
+		color: #448c44;
+		position: absolute;
+		right: 5px;
+		top: 0px;
+		line-height: 48px;
+		text-decoration: none;
+	}
+</style>
+<div id="content-wrapper" class="flex-row content">
+	<div id="site-content" class="content-section">
+		<div id="highlighter"></div>
+		<iframe src="https://wwwdev.progress.com" frameborder="0"></iframe>
+	</div>
+	<aside id="tests-setup" class="content-section">
+		<div class="section-header">
+			<h2>Tests on page</h2>
+			<a href="#" class="fa fa-plus-circle" aria-hidden="true"></a>
+		</div>
+		<ul id="testPanel">
+			<li>
+				<span class="k-link">
+					<span class="editable">Form Test</span>
+				</span>
+				
+				<div>
+					
+				</div>
+
+			</li>
+		</ul>
+
+	</aside>
+</div>
+
+</body>
+
+</html>

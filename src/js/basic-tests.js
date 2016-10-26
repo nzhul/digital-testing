@@ -29,6 +29,6 @@ $('#selectBtn').click(function () {
 
 $("#testPanel").kendoPanelBar();
 $('.editable').inlineEdit({
-      buttons: '<a href="#" class="save"><i class="fa fa-pencil-square" aria-hidden="true"></i></a> <a href="#" class="cancel"><i class="fa fa-times"></i></a>',
+      buttons: '<a href="#" class="save inline-edit-action"><i class="fa fa-check" aria-hidden="true"></i></a> <a href="#" class="cancel inline-edit-action"><i class="fa fa-times"></i></a>',
       buttonsTag: 'a'
     });
