@@ -98,6 +98,7 @@ const copy = () => {
   gulp.src('./readme.md').pipe(gulp.dest(DEST))
   gulp.src('./package.json').pipe(gulp.dest(DEST))
   gulp.src('./src/js/kendo.all.min.js').pipe(gulp.dest(DEST + '/js'))
+  gulp.src('./bower_components/**/*', { base: './' }).pipe(gulp.dest(DEST))
 }
 
 // Optimize and compress images
@@ -120,7 +121,7 @@ const cssdev = () => {
     .pipe(postcss([ autoprefixer({ cascade: false }) ]))
     .pipe(rename({ suffix: `-${config.version}` }))
     .pipe(gulp.dest(DEST_CSS))
-    .pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))
+    //.pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))
     .on('error', onerror)
     .on('error', () => { err = true })
     .pipe(rename({ suffix: '.min' }))
@@ -139,7 +140,7 @@ const cssdist = () => {
     .pipe(postcss([ autoprefixer({ browsers: AUTOPREFIXER_BROWSERS, cascade: false }), mqpacker() ]))
     .pipe(rename({ suffix: `-${config.version}` }))
     .pipe(gulp.dest(DEST_CSS))
-    .pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))
+    //.pipe(stylelint({ reporters: [{ formatter: 'verbose', console: true }] }))
     .on('error', onerror)
     .pipe(postcss([ cssnano({ zindex: false, normalizeCharset: true }) ]))
     .pipe(rename({ suffix: '.min' }))

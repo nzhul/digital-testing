@@ -1,15 +1,41 @@
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-6">
       <h1>Setup Your Testing Environment...</h1>
-    </div>
 
-    <div class="col-6">
-      <h1>Setup Your Testing Environment...</h1>
-    </div>
+      <form action="#" novalidate>
+        <div class="form-field">
+          <paper-checkbox>Basic</paper-checkbox>
+        </div>
 
+        <div class="form-field">
+          <paper-checkbox style="width:220px">Telerik Testing Framework</paper-checkbox>
+
+
+          <paper-dropdown-menu label="Test Executor">
+            <paper-listbox class="dropdown-content">
+              <paper-item>NUnit</paper-item>
+              <paper-item>MSTest</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </div>
+
+        <div class="form-field">
+          <paper-checkbox style="width:220px">Selenium WebDriver</paper-checkbox>
+
+          <paper-dropdown-menu label="Test Executor">
+            <paper-listbox class="dropdown-content">
+              <paper-item>NUnit</paper-item>
+              <paper-item>MSTest</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </div>
+
+        <div class="form-field">
+          <paper-button raised class="custom">Start Setup</paper-button>
+        </div>
+      </form>
+
+    </div>
   </div>
 </div>
