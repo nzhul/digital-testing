@@ -106,6 +106,25 @@
 	.test-result-100 {
 		background-color:  #86CB35;
 	}
+
+
+	.running-test {
+	  animation: blink-animation 500ms steps(5, start) infinite alternate;
+	  -webkit-animation: blink-animation 500ms steps(5, start) infinite alternate;
+	}
+	@keyframes blink-animation {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+
+		@keyframes blink-animation2 {
+		from { opacity: 1; }
+		to   { opacity: 0; }
+	}
+	@-webkit-keyframes blink-animation {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
 </style>
 
 
@@ -474,7 +493,7 @@
 							<a title="Scheduling" href="#" class="scheduling-button">
 								<i class="fa fa-calendar"></i>
 							</a>
-							<div class="test-result test-result-100"></div>
+							<div class="test-result test-result-100 running-test"></div>
 						</span>
 						<div style="padding: 10px;">
 							<table class="report-table">
@@ -517,7 +536,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#" class="running-test"><i class="fa fa-circle test-success"></i></a>
 										</td>
 									</tr>
 									<tr>
@@ -549,7 +568,7 @@
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
 											<a href="#"><i class="fa fa-circle test-success"></i></a>
-											<a href="#"><i class="fa fa-circle test-success"></i></a>
+											<a href="#" class="running-test"><i class="fa fa-circle test-success"></i></a>
 										</td>
 									</tr>
 									<tr>
