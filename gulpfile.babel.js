@@ -224,10 +224,10 @@ const onsuccess = () => {
     .pipe(size({ title: 'total size gzip', gzip: true }))
 }
 
-const onerror = (error) => {
+const onerror = function onerror(error) {
   log(error.toString())
   notify(error.plugin.replace('gulp-', '').concat(' fails'))
-  failsafe ? gulp.emit('end') : process.exit(1)
+  failsafe ? this.emit('end') : process.exit(1)
 }
 
 // Our `watch` function

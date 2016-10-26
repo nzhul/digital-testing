@@ -1,0 +1,44 @@
+.nav
+  display: flex
+  justify-content: space-between
+  height: 40px
+  padding: 0 30px 0 40px
+  color: #fff
+  overflow: hidden
+  font: 400 13px $ff-sans
+  background: #2d3e50 url('https://platform.telerik.com/admin/files/797d2b8b-1946-494c-a3d5-eccadc0e0424') 15px 10px no-repeat
+
+  a
+    line-height: 40px
+    color: alpha(#fff, 60%)
+    text-decoration: none
+
+  a:hover, a:focus, a.is-active
+    color: #fff
+
+  ul
+    display: flex
+
+  li
+    padding: 0 10px
+    position: relative
+    &:after
+      content: "\f105"
+      font: 400 15px/40px $ff-fa
+      position: absolute
+      top: 1px
+      right: -2px
+      color: alpha(#fff, 50%)
+
+  li:last-child:after
+    content: none
+
+  img
+    position: relative
+    top: 5px
+    max-width: 30px
+    max-height: 30px
+    margin-right: 5px
+    vertical-align: top
+    display: inline-block
+    border-radius: 50%

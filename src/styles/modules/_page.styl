@@ -1,3 +1,24 @@
+body
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+
+#main
+  flex: 1
+  display: flex
+
+
+#app-sidebar
+  display: flex
+  flex-direction: column
+
+#app-content
+  display: flex
+  flex-direction: column
+  width: 100%
+
+
 .box
   height: 100%
   margin: 10px
@@ -12,17 +33,17 @@
     border-bottom: 3px dashed deeppink
 
 
-ul
-  font-size: 17px
-  margin: 0
-  padding: 0
-  list-style: none
-
-  > li
+  ul
+    font-size: 17px
     margin: 0
     padding: 0
+    list-style: none
 
-  > li > a
-    padding: 10px
-    display: block
+    > li
+      margin: 0
+      padding: 0
+
+    > li > a
+      padding: 10px
+      display: block
 
