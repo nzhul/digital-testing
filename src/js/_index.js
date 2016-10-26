@@ -1,5 +1,6 @@
 // import 'babel-polyfill'
 import asynccss from './async-css'
+import './dido.js'
 
 asynccss.load('https://fonts.googleapis.com/css?family=Roboto:400,500,700')
 asynccss.load('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
