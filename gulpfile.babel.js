@@ -94,6 +94,7 @@ const notify = (message) => {
 const copy = () => {
   gulp.src('./readme.md').pipe(gulp.dest(DEST))
   gulp.src('./package.json').pipe(gulp.dest(DEST))
+  gulp.src('./src/js/kendo.all.min.js').pipe(gulp.dest(DEST + '/js'))
 }
 
 // Optimize and compress images
