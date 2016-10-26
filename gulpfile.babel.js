@@ -252,7 +252,7 @@ gulp.task('copy', copy)
 gulp.task('lint', lint)
 gulp.task('html', html)
 gulp.task('images', images)
-gulp.task('js', ['lint'], js)
+gulp.task('js', js)
 gulp.task('clean', () => del.sync(DEST))
 
 gulp.task('iconfont-hash', font.invalidate)
