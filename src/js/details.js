@@ -34,8 +34,8 @@
 	});
 
 	videoDialog.kendoWindow({
-		width: "760px",
-		height: "435px",
+		width: "800px",
+		height: "520px",
 		title: "Video:",
 		visible: false,
 		modal: true,

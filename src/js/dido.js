@@ -12,7 +12,7 @@ $(document).ready(function () {
 		}
 	});
 
-	$("#panelbar").kendoPanelBar({
+	$("#panelbar, #panelbar-2").kendoPanelBar({
 		expandMode: "multiple"
 	});
 
