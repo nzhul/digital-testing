@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿import progress from './setup-env-form'
+
+$(document).ready(function () {
   'use strict'
   if (!document.querySelector('#tabstrip')) return
 
@@ -104,7 +106,10 @@
 	$('.js-upload-btn').on('click', function () {
 		uploadWindow.data('kendoWindow').close();
 		$('#teststudio-upload-wrapper').hide();
-		$('#teststudio-upload-fake-loading').show(); // show polimer fancy loading
+		$('#teststudio-upload-fake-loading').slideToggle('fast'); // show polimer fancy loading
+		progress
+			.start(document.querySelector('#js-analize-bar'), 3)
+			.then(() => window.alert('123'))
 		setTimeout(function () {
 			// wait for 5 seconds
 			$('#teststudio-upload-fake-loading').hide();
@@ -114,3 +119,4 @@
 
 	});
 });
+

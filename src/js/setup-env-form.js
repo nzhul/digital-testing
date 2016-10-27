@@ -49,4 +49,6 @@ const init = () => {
   button.addEventListener('click', handler, false)
 }
 
-export default { init }
+
+
+export default { init, start }
