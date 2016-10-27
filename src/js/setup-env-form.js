@@ -51,7 +51,7 @@ const init = () => {
   button.addEventListener('click', handler, false)
 
   okbtn.addEventListener('click', () => {
-    raf(() => window.location = '/list')
+    raf(() => window.location = '/getting-started')
   }, false)
 }
 

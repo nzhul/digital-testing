@@ -15,7 +15,7 @@
       <br><br>
       <form action="#" novalidate>
         <div class="form-field">
-          <paper-checkbox class="green"><b>Basic Tests</b></paper-checkbox>
+          <paper-checkbox class="green"><b>Digital Factory Tests</b></paper-checkbox>
         </div>
 
         <div class="form-field">
@@ -41,11 +41,10 @@
         <div class="form-field">
           <div class="-dib">
           <paper-button class="btn-prim" id="js-submit" raised>Setup Digital Testing</paper-button>
-          <p class="-tac" style="margin: 2px"><small>could take couple of minutes</small></p>
+          <p class="-tac" style="margin: 2px"><small>could take a couple of minutes</small></p>
           </div>
         </div>
       </form>
-
 
       <section id="js-form-ok" class="-dn">
         <style is="custom-style">
@@ -61,16 +60,15 @@
         <p>Setting up environment...</p>
         <paper-progress id="js-bar1"></paper-progress>
 
-        <p>Installing Telerik Testing Framework...</p>
+        <p>Provisioning Digital Testing Test agents...</p>
         <paper-progress id="js-bar2" class="slow"></paper-progress>
 
-        <p>Generating basic tests...</p>
+        <p>Provisioning Telerik Testing Framework Test agents...</p>        
         <paper-progress id="js-bar3"></paper-progress>
 
-        <p>Lorem ipsum dolor sit amet...</p>
+        <p>Provisioning Selenium Web Driver Test agents...</p>
         <paper-progress id="js-bar4"></paper-progress>
       </section>
-
     </div>
   </div>
 </div>
@@ -79,7 +77,7 @@
 <!-- <paper-button raised onclick="animated.open()">OK</paper-button> -->
 <paper-dialog id="js-dialog" entry-animation="slide-from-top-animation" exit-animation="fade-out-animation" with-backdrop>
   <h2 style="color: #0f9d58">Setup is Done</h2>
-  <p>Now you are ready to start creating test cases or upload your existing setup!</p>
+  <p>Now you are ready to start creating test cases or upload your existing automation!</p>
   <div class="buttons">
     <paper-button id="js-dialog-confirm" dialog-confirm autofocus><b>Continue</b></paper-button>
   </div>

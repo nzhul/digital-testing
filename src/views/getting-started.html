@@ -1,0 +1,168 @@
+<section id="tests-view">
+
+	<div id="loading-box">
+		Loading
+		<img src="img/loading.gif" alt="" />
+	</div>
+	<div class="layout-container" style="display:none;">
+		<h5>Testing</h5>
+		<div class="demo-section k-content">
+			<div id="tabstrip">
+				<ul>
+					<li class="k-state-active">Basic</li>
+					<li>Test Studio</li>
+					<li>Selenium</li>
+				</ul>
+	<div>
+		<div class="alertBox"><p>Begin by adding your first Test Cases...</p></div>
+			<button class="add-new-test-btn add-btn add-new-suite-btn" style="float:right;" id="addTestCase"><i class="fa fa-plus" style="margin-left:-15px;margin-right:5px;"></i> Add test</button>
+	</div>
+	<div>
+		<div id="teststudio-upload-wrapper" style="text-align:center;">
+			<a href="#" class="upload-package-button js-upload-package-modal">
+				<i class="fa fa-archive" style="font-size:80px;"></i><br />
+				<strong>UPLOAD PACKAGE</strong>
+			</a>
+			<p>Required: <br/>TestStudio version: 1.254.487.1 <a href="#" style="color:#3F51B5;text-decoration:none;">[Change]</a></p>
+		</div>
+
+		<div id="teststudio-upload-fake-loading" style="display:none;">
+			<!--style="display:none;"-->
+			<div class="form-field">
+				<p>Analizing your test solution...</p>
+				<paper-progress id="js-analize-bar" class="slow"></paper-progress>
+			</div>
+			<div class="form-field">
+				<p>Provisioning detected tests...</p>
+				<paper-progress id="js-analize-bar2" class="slow"></paper-progress>
+			</div>
+		</div>
+		<div id="teststudio-upload-result" style="display:none;">
+			Result ...
+		</div>
+	</div>
+	<div>
+		<div style="text-align:center;">
+			<a href="#" class="upload-package-button js-upload-package-modal">
+				<i class="fa fa-archive" style="font-size:80px;"></i><br />
+				<strong>UPLOAD PACKAGE</strong>
+			</a>
+			<p>Required: <br />Selenium version: 1.254.487.1 <a href="#" style="color:#3F51B5;text-decoration:none;">[Change]</a></p>
+		</div>
+	</div>
+
+	</div>
+	</div>
+	</div>
+	<div id="add-new-test-dialog">
+		<strong>Page name:</strong><br /> http://www.progress.com/ <input id="pages" style="width: 50%;" />
+		<button class="add-btn js-add-test-btn" style="width:70px;"><i class="fa fa-plus" style="margin-left:-10px;margin-right:5px;"></i>Add</button>
+	</div>
+
+	<div id="upload-package-dialog">
+		<h5>Telerik Testing Framework Package</h5>
+		<div class="-dib -mr2" style="max-width: 220px">
+			<input id="js-input-file" type="file" style="position: absolute; top: -9999px">
+			<paper-input id="js-fake-input-file" label="upload file"></paper-input>
+		</div>
+
+		<!-- <button class="upload-btn js-upload-btn"><i class="fa fa-upload" style="margin-left:-10px;margin-right:5px;"></i>Upload</button> -->
+		<paper-button raised class="btn-prim js-upload-btn">
+			<i class="fa fa-upload"></i> &nbsp; Upload
+		</paper-button>
+	</div>
+</section>
+
+
+<paper-dialog id="scheduling-dialog" entry-animation="slide-from-top-animation" exit-animation="fade-out-animation" with-backdrop>
+	<div id="" style="width:320px">
+		<h2 style="color:#0f9d58">Scheduling tests run</h2>
+		<p>Define when you want to run your tests.</p>
+
+		<div class="form-field">
+			<paper-dropdown-menu label="Set Period" id="js-period">
+				<paper-listbox class="dropdown-content">
+					<paper-item>Every Month</paper-item>
+					<paper-item>Every Day</paper-item>
+				</paper-listbox>
+			</paper-dropdown-menu>
+		</div>
+
+		<div class="form-field -dn" id="js-date-on">
+			<paper-dropdown-menu label="on date">
+				<paper-listbox class="dropdown-content">
+					<paper-item>1th</paper-item>
+					<paper-item>2th</paper-item>
+					<paper-item>3th</paper-item>
+					<paper-item>4th</paper-item>
+					<paper-item>5th</paper-item>
+					<paper-item>6th</paper-item>
+					<paper-item>7th</paper-item>
+					<paper-item>8th</paper-item>
+					<paper-item>9th</paper-item>
+					<paper-item>10th</paper-item>
+					<paper-item>11th</paper-item>
+					<paper-item>12th</paper-item>
+					<paper-item>13th</paper-item>
+					<paper-item>14th</paper-item>
+					<paper-item>15th</paper-item>
+					<paper-item>16th</paper-item>
+					<paper-item>17th</paper-item>
+					<paper-item>18th</paper-item>
+					<paper-item>19th</paper-item>
+					<paper-item>20th</paper-item>
+					<paper-item>21th</paper-item>
+					<paper-item>22th</paper-item>
+					<paper-item>23th</paper-item>
+					<paper-item>24th</paper-item>
+					<paper-item>25th</paper-item>
+					<paper-item>26th</paper-item>
+					<paper-item>27th</paper-item>
+					<paper-item>28th</paper-item>
+					<paper-item>29th</paper-item>
+					<paper-item>30th</paper-item>
+					<paper-item>31th</paper-item>
+				</paper-listbox>
+			</paper-dropdown-menu>
+		</div>
+
+		<div class="form-field -dn" id="js-date-at">
+			<paper-dropdown-menu label="at time">
+				<paper-listbox class="dropdown-content">
+					<paper-item>1am</paper-item>
+					<paper-item>2am</paper-item>
+					<paper-item>3am</paper-item>
+					<paper-item>4am</paper-item>
+					<paper-item>5am</paper-item>
+					<paper-item>6am</paper-item>
+					<paper-item>7am</paper-item>
+					<paper-item>8am</paper-item>
+					<paper-item>9am</paper-item>
+					<paper-item>10am</paper-item>
+					<paper-item>11am</paper-item>
+					<paper-item>12am</paper-item>
+					<paper-item>1pm</paper-item>
+					<paper-item>2pm</paper-item>
+					<paper-item>3pm</paper-item>
+					<paper-item>4pm</paper-item>
+					<paper-item>5pm</paper-item>
+					<paper-item>6pm</paper-item>
+					<paper-item>7pm</paper-item>
+					<paper-item>8pm</paper-item>
+					<paper-item>9pm</paper-item>
+					<paper-item>10pm</paper-item>
+					<paper-item>11pm</paper-item>
+					<paper-item>12pm</paper-item>
+				</paper-listbox>
+			</paper-dropdown-menu>
+		</div>
+
+		<div class="form-field">
+			<paper-checkbox class="green">Run after upload</paper-checkbox>
+		</div>
+
+		<div class="buttons">
+			<paper-button id="js-dialog-confirm" dialog-confirm autofocus><b>Continue</b></paper-button>
+		</div>
+	</div>
+</paper-dialog>
