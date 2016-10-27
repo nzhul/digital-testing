@@ -1,38 +1,4 @@
-﻿<style>
-	/*Table CSS*/
-
-	table {
-		width: 100%;
-		text-align: left;
-		border-collapse: collapse;
-		border: 1px solid #cbcbcb;
-		box-shadow: 2px 2px 0px #cbcbcb;
-	}
-
-		table th {
-			padding: 8px;
-			font-weight: bold;
-			font-size: 14px;
-			color: gray;
-			border-bottom: 1px solid #cbcbcb;
-			background: #e5e5e5;
-		}
-
-		table td {
-			padding: 5px 5px 5px 5px;
-			color: gray;
-		}
-
-		table tbody tr:hover td {
-			color: #6a6a6a;
-			background: #e5e5e5;
-		}
-
-		table tr {
-			border-bottom: 1px dashed #cbcbcb;
-		}
-
-	/*Table CSS END*/
+<style>
 
 	#loading-box {
 		height: 900px;
@@ -91,46 +57,48 @@
 	<div class="row" style="margin-top:20px;">
 		<div class="col-12">
 			<h5>Error Message:</h5>
-			<p>Test method WebDivision.Tests.Progress.UITests.ProgressCom.Whitepapers.Backend.TestCases.PapersBackend.TryCreatePaperAllFieldsEmpty threw exception:
-WebDivision.UITests.Core.Exceptions.ElementTimeoutException:  TIMED OUT- for element with Find Expression:
- id=?_actionsContainer_Publish
- Element Name: WebDivision.UITests.Core.Extensions.Find.BaseBrowserFindExtensions`1.FindByIdEndingWithAndWait
- URL: https://wwwsit.progress.com/sitefinity/content/papers#event=showWindow&winId=ctl04_paperBackendList_ctl00_ctl00_itemsGrid_ctl00_ctl00_create&autoMax=false
-Element Timeout: 60000</p>
+<code><pre>
+Test method WebDivision.Tests.Progress.UITests.ProgressCom.Whitepapers.Backend.TestCases.PapersBackend.TryCreatePaperAllFieldsEmpty threw exception:
+WebDivision.UITests.Core.Exceptions.ElementTimeoutException:  TIMED OUT- for element with Find Expression:id=?_actionsContainer_Publish
+Element Name: WebDivision.UITests.Core.Extensions.Find.BaseBrowserFindExtensions`1.FindByIdEndingWithAndWait
+URL: https://wwwsit.progress.com/sitefinity/content/papers#event=showWindow&winId=ctl04_paperBackendList_ctl00_ctl00_itemsGrid_ctl00_ctl00_create&autoMax=false
+Element Timeout: 60000
+</pre></code>
+
 		</div>
 	</div>
 	<div class="row" style="margin-top:20px;">
 		<div class="col-12">
 			<h5>Stack trace:</h5>
-			<p>
-				at WebDivision.UITests.TestStudio.Engine.TestStudioDriver..ctor(Browsers currentBrowserType)
-				at WebDivision.UITests.Core.Engine.TestsExecutionEngine.<ResolveAllDriverDependencies>
-					b__0(IUnityContainer x)
-					at Microsoft.Practices.Unity.InjectionFactory.<>c__DisplayClass2.<.ctor>
-						b__0(IUnityContainer c, Type t, String s)
-						at Microsoft.Practices.ObjectBuilder2.FactoryDelegateBuildPlanPolicy.BuildUp(IBuilderContext context)
-						at Microsoft.Practices.ObjectBuilder2.BuildPlanStrategy.PreBuildUp(IBuilderContext context)
-						at Microsoft.Practices.ObjectBuilder2.StrategyChain.ExecuteBuildUp(IBuilderContext context)
-						at Microsoft.Practices.Unity.UnityContainer.DoBuildUp(Type t, Object existing, String name, IEnumerable`1 resolverOverrides)
-						--- End of inner exception stack trace ---
-						at Microsoft.Practices.Unity.UnityContainer.DoBuildUp(Type t, Object existing, String name, IEnumerable`1 resolverOverrides)
-						at Microsoft.Practices.Unity.UnityContainer.Resolve(Type t, String name, ResolverOverride[] resolverOverrides)
-						at Microsoft.Practices.Unity.UnityContainerExtensions.Resolve[T](IUnityContainer container, ResolverOverride[] overrides)
-						at WebDivision.UITests.Core.Engine.TestsExecutionEngine.ResolveAllDriverDependencies()
-						at WebDivision.UITests.Core.Behaviors.ExecutionEngineBehaviorObserver.PreTestInit(Object sender, TestExecutionEventArgs e)
-						at System.EventHandler`1.Invoke(Object sender, TEventArgs e) 
-						at WebDivision.Tests.Core.Base.BaseTestCase.RaiseTestEvent(EventHandler`1 eventHandler, MemberInfo memberInfo)
-						at WebDivision.Tests.Core.Base.BaseTestCase.CoreTestInitInternal()
-						at WebDivision.UITests.Core.BaseUITestCase.CoreTestInit()
-			</p>
+<code><pre>
+at WebDivision.UITests.TestStudio.Engine.TestStudioDriver..ctor(Browsers currentBrowserType)
+at WebDivision.UITests.Core.Engine.TestsExecutionEngine.<ResolveAllDriverDependencies>
+	b__0(IUnityContainer x)
+	at Microsoft.Practices.Unity.InjectionFactory.<>c__DisplayClass2.<.ctor>
+		b__0(IUnityContainer c, Type t, String s)
+		at Microsoft.Practices.ObjectBuilder2.FactoryDelegateBuildPlanPolicy.BuildUp(IBuilderContext context)
+		at Microsoft.Practices.ObjectBuilder2.BuildPlanStrategy.PreBuildUp(IBuilderContext context)
+		at Microsoft.Practices.ObjectBuilder2.StrategyChain.ExecuteBuildUp(IBuilderContext context)
+		at Microsoft.Practices.Unity.UnityContainer.DoBuildUp(Type t, Object existing, String name, IEnumerable`1 resolverOverrides)
+		--- End of inner exception stack trace ---
+		at Microsoft.Practices.Unity.UnityContainer.DoBuildUp(Type t, Object existing, String name, IEnumerable`1 resolverOverrides)
+		at Microsoft.Practices.Unity.UnityContainer.Resolve(Type t, String name, ResolverOverride[] resolverOverrides)
+		at Microsoft.Practices.Unity.UnityContainerExtensions.Resolve[T](IUnityContainer container, ResolverOverride[] overrides)
+		at WebDivision.UITests.Core.Engine.TestsExecutionEngine.ResolveAllDriverDependencies()
+		at WebDivision.UITests.Core.Behaviors.ExecutionEngineBehaviorObserver.PreTestInit(Object sender, TestExecutionEventArgs e)
+		at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+		at WebDivision.Tests.Core.Base.BaseTestCase.RaiseTestEvent(EventHandler`1 eventHandler, MemberInfo memberInfo)
+		at WebDivision.Tests.Core.Base.BaseTestCase.CoreTestInitInternal()
+		at WebDivision.UITests.Core.BaseUITestCase.CoreTestInit()
+</pre></code>
 		</div>
 	</div>
 </div>
 
-<div id="screehshot-dialog">
+<div id="screehshot-dialog" style="display: none">
 	<img src="img/screenshot-example.png" alt="Alternate Text" />
 </div>
 
-<div id="video-dialog">
+<div id="video-dialog" style="display: none">
 	<iframe width="750" height="410" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
 </div>
