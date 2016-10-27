@@ -97,6 +97,7 @@ const notify = (message) => {
 const copy = () => {
   gulp.src('./readme.md').pipe(gulp.dest(DEST))
   gulp.src('./package.json').pipe(gulp.dest(DEST))
+  gulp.src('./src/favicon.ico').pipe(gulp.dest(DEST))
   gulp.src('./src/js/kendo.all.min.js').pipe(gulp.dest(DEST + '/js'))
   gulp.src('./bower_components/**/*', { base: './' }).pipe(gulp.dest(DEST))
 }
