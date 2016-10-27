@@ -4,7 +4,6 @@
     --paper-checkbox-checked-ink-color: var(--paper-green-500);
     --paper-checkbox-unchecked-color: var(--paper-green-900);
     --paper-checkbox-unchecked-ink-color: var(--paper-green-900);
-    /*--paper-checkbox-label-color: var(--paper-green-500);*/
   }
 </style>
 
@@ -41,7 +40,7 @@
 
         <div class="form-field">
           <div class="-dib">
-          <paper-button id="js-submit" raised class="custom">Setup Digital Testing</paper-button>
+          <paper-button class="btn-prim" id="js-submit" raised>Setup Digital Testing</paper-button>
           <p class="-tac" style="margin: 2px"><small>could take couple of minutes</small></p>
           </div>
         </div>
@@ -81,5 +80,7 @@
 <paper-dialog id="js-dialog" entry-animation="slide-from-top-animation" exit-animation="fade-out-animation" with-backdrop>
   <h2 style="color: #0f9d58">Setup is Done</h2>
   <p>Now you are ready to start creating test cases or upload your existing setup!</p>
-  <paper-button raised onclick="animated.close()">OK</paper-button>
+  <div class="buttons">
+    <paper-button dialog-confirm autofocus>Continue</paper-button>
+  </div>
 </paper-dialog>

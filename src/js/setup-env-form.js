@@ -48,8 +48,8 @@ const init = () => {
 
   button.addEventListener('click', () => success.classList.remove('-dn'), false)
   button.addEventListener('click', handler, false)
+
+  document.querySelector('#js-dialog').open()
 }
-
-
 
 export default { init, start }
