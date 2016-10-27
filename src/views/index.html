@@ -42,25 +42,34 @@
         <div class="form-field">
           <div class="-dib">
           <paper-button id="js-submit" raised class="custom">Setup Digital Testing</paper-button>
-          <p class="-tac" style="margin: 2px"><small>this may take a while...</small></p>
+          <p class="-tac" style="margin: 2px"><small>could take couple of minutes</small></p>
           </div>
         </div>
       </form>
 
 
-      <section id="form-success" class="-dn">
-        <p>Setting up environment...</p>
+      <section id="js-form-ok" class="-dn">
         <style is="custom-style">
           paper-progress {
-            width: 430px !important
+            width: 430px !important;
+            margin-bottom: 30px;
           }
           paper-progress.slow {
-            --paper-progress-indeterminate-cycle-duration: 20s;
+            --paper-progress-indeterminate-cycle-duration: 5s;
           }
         </style>
-        <paper-progress indeterminate></paper-progress>
-        <br>
-        <paper-progress indeterminate class="slow"></paper-progress>
+
+        <p>Setting up environment...</p>
+        <paper-progress id="js-bar1"></paper-progress>
+
+        <p>Installing Telerik Testing Framework...</p>
+        <paper-progress id="js-bar2" class="slow"></paper-progress>
+
+        <p>Generating basic tests...</p>
+        <paper-progress id="js-bar3"></paper-progress>
+
+        <p>Lorem ipsum dolor sit amet...</p>
+        <paper-progress id="js-bar4"></paper-progress>
       </section>
 
     </div>
