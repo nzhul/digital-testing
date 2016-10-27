@@ -9,7 +9,6 @@
 </style>
 
 
-
 <div class="container">
   <div class="row">
     <div class="col-6">
@@ -17,11 +16,21 @@
       <br><br>
       <form action="#" novalidate>
         <div class="form-field">
-          <paper-checkbox class="green">Basic</paper-checkbox>
+          <paper-checkbox class="green"><b>Basic</b></paper-checkbox>
         </div>
 
         <div class="form-field">
-          <paper-checkbox class="green" style="width:220px">Telerik Testing Framework</paper-checkbox>
+          <paper-checkbox class="green" style="width:220px"><b>Telerik Testing Framework</b></paper-checkbox>
+          <paper-dropdown-menu label="Test Executor">
+            <paper-listbox class="dropdown-content">
+              <paper-item>NUnit</paper-item>
+              <paper-item>MSTest</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </div>
+
+        <div class="form-field -mb4">
+          <paper-checkbox class="green" style="width:220px"><b>Selenium WebDriver</b></paper-checkbox>
           <paper-dropdown-menu label="Test Executor">
             <paper-listbox class="dropdown-content">
               <paper-item>NUnit</paper-item>
@@ -31,23 +40,15 @@
         </div>
 
         <div class="form-field">
-          <paper-checkbox class="green" style="width:220px">Selenium WebDriver</paper-checkbox>
-          <paper-dropdown-menu label="Test Executor">
-            <paper-listbox class="dropdown-content">
-              <paper-item>NUnit</paper-item>
-              <paper-item>MSTest</paper-item>
-            </paper-listbox>
-          </paper-dropdown-menu>
-        </div>
-
-        <div class="form-field">
-          <paper-button raised class="custom">Start Setup</paper-button>
+          <div class="-dib">
+          <paper-button id="js-submit" raised class="custom">Setup Digital Testing</paper-button>
+          <p class="-tac" style="margin: 2px"><small>this may take a while...</small></p>
+          </div>
         </div>
       </form>
 
 
-
-      <section id="success">
+      <section id="form-success" class="-dn">
         <p>Setting up environment...</p>
         <style is="custom-style">
           paper-progress {
