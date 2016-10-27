@@ -43,13 +43,16 @@ const handler = (event) => {
 const init = () => {
   let button = document.querySelector('#js-submit')
   let success = document.querySelector('#js-form-ok')
+  let okbtn = document.querySelector('#js-dialog-confirm')
 
   if (!button) return
 
   button.addEventListener('click', () => success.classList.remove('-dn'), false)
   button.addEventListener('click', handler, false)
 
-  document.querySelector('#js-dialog').open()
+  okbtn.addEventListener('click', () => {
+    raf(() => window.location = '/list')
+  }, false)
 }
 
 export default { init, start }
