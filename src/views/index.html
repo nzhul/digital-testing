@@ -75,3 +75,11 @@
     </div>
   </div>
 </div>
+
+
+<paper-button raised onclick="animated.open()">OK</paper-button>
+<paper-dialog id="animated" entry-animation="slide-from-top-animation" exit-animation="fade-out-animation" with-backdrop>
+  <h2 style="color: #0f9d58">Setup is Done</h2>
+  <p>Now you are ready to start creating test cases or upload your existing setup!</p>
+  <paper-button raised onclick="animated.close()">OK</paper-button>
+</paper-dialog>

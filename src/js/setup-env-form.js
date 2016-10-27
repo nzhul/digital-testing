@@ -1,5 +1,7 @@
 'use strict'
 
+import pubsub from 'pubsub-js'
+
 let repeat = 0
 let animating = false
 const raf = requestAnimationFrame
@@ -8,6 +10,9 @@ const start = (progress, count) => {
   repeat = 0
   progress.value = progress.min
   !animating && next(progress, count)
+  return new Promise((resolve, reject) => {
+    pubsub.subscribe('PROGRESS_FINISH', () => resolve('OK'))
+  })
 }
 
 const next = (progress, max) => {
@@ -18,6 +23,7 @@ const next = (progress, max) => {
   else {
     if (++repeat >= max) {
       animating = false
+      pubsub.publish('PROGRESS_FINISH', progress)
       return
     }
     progress.value = progress.min
@@ -26,10 +32,10 @@ const next = (progress, max) => {
 }
 
 const handler = (event) => {
-  start(document.querySelector('#js-bar1'), 2)
-  // start(document.querySelector('#js-bar2'), 2)
-  // start(document.querySelector('#js-bar3'), 3)
-  // start(document.querySelector('#js-bar4'), 2)
+  start(document.querySelector('#js-bar1'), 3)
+    .then(() => start(document.querySelector('#js-bar2'), 2))
+    .then(() => start(document.querySelector('#js-bar3'), 2))
+    .then(() => start(document.querySelector('#js-bar4'), 3))
   event.preventDefault()
 }
 
