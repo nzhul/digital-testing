@@ -25,6 +25,7 @@
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5",
     "paper-progress": "PolymerElements/paper-progress#^1.0.11",
     "paper-dialog": "PolymerElements/paper-dialog#^1.1.0",
-    "neon-animation": "PolymerElements/neon-animation#^1.2.4"
+    "neon-animation": "PolymerElements/neon-animation#^1.2.4",
+    "paper-input": "PolymerElements/paper-input#^1.1.20"
   }
 }
