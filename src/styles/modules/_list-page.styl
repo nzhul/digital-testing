@@ -1,5 +1,4 @@
 #tests-view
-
   .sidebar-navigation-selected:hover
     background-color: #F5F7F8 !important
 
@@ -8,21 +7,28 @@
     text-align: left
     border-collapse: collapse
     border: 1px solid #cbcbcb
-    box-shadow: 2px 2px 0px #cbcbcb
+    font: 400 13px monospace
 
 
   table th
-    padding: 8px
-    font-weight: bold
-    font-size: 14px
+    padding: 8px 0
+    font-size: 11px
+    font-weight: 500
     color: gray
-    border-bottom: 1px solid #cbcbcb
     background: #e5e5e5
+    text-transform: uppercase
+    border-bottom: 1px solid #cbcbcb
+    &:first-child
+      text-align: center
 
 
   table td
     color: gray
-    padding: 5px 5px 5px 5px
+    font-weight: 400
+    padding: 10px 0
+
+  tbody tr > td:first-child
+    text-align: center
 
 
   table tbody tr:hover td
@@ -66,15 +72,8 @@
     color: gray
 
 
-  .run-suita-now
-    float: right
-    margin-right: 18px
-    margin-top:1px
-    color: gray
-
-
-  td > .run-suita-now
-    margin-right: 15px
+  // .run-suita-now
+  //   color: gray
 
 
   #loading-box
@@ -93,12 +92,14 @@
   .test-result
     width:50px
     height:10px
-    border-radius:5px
-    float:right
-    position:relative
-    top:13px
-    left:-20px
+    border-radius: 2px
+    display: inline-block
+    vertical-align: middle
 
+  .suite-header-actions
+    padding: 0 8px
+    > a, > span
+      margin: 0 8px
 
   .test-result-0
     background-color: #E10000
@@ -117,6 +118,19 @@
 
   .running-test
     animation: blink-animation 500ms steps(5, start) infinite alternate
+
+
+.suite-header
+  display: flex
+  justify-content: space-between
+
+  h6
+    margin: 0
+    font-weight: 500
+
+.k-state-selected .suite-header h6
+  color: cornflowerblue
+
 
 
 @keyframes blink-animation
