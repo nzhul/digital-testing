@@ -42,7 +42,7 @@
 		font-size: 20px;
 	}
 
-		.test-fail {
+	.test-fail {
 		color: #EB0001;
 		font-size:20px;
 		margin-bottom:15px;
@@ -52,9 +52,14 @@
 		border: 5px solid gray;
 		height:200px;
 	}
+
+	.screenshot:hover {
+		outline: 2px solid gray;
+	}
 </style>
 
 
+<div id="pageid-details" style="display:none;" ></div>
 <div id="loading-box">
 	Loading
 	<img src="img/loading.gif" alt="" />
@@ -76,11 +81,11 @@
 	<div class="row">
 		<div class="col-4">
 			<h5>Screenshots:</h5>
-			<a href="#"><img  class="screenshot" src="img/screenshot-example.png" alt="Alternate Text" /></a>
+			<a href="#" id="screenshot-btn"><img  class="screenshot" src="img/screenshot-example.png" alt="Alternate Text" /></a>
 		</div>
 		<div class="col-4">
 			<h5>Video:</h5>
-			<a href="#"><img class="screenshot" src="img/screenshot-example.png" alt="Alternate Text" /></a>
+			<a href="#" id="video-btn"><img class="screenshot" src="img/screenshot-example.png" alt="Alternate Text" /></a>
 		</div>
 	</div>
 	<div class="row" style="margin-top:20px;">
@@ -120,4 +125,12 @@ Element Timeout: 60000</p>
 			</p>
 		</div>
 	</div>
+</div>
+
+<div id="screehshot-dialog">
+	<img src="img/screenshot-example.png" alt="Alternate Text" />
+</div>
+
+<div id="video-dialog">
+	<iframe width="750" height="410" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
 </div>

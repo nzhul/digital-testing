@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
 'use strict'
 
 if (!document.querySelector('#scheduling-dialog')) return

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
   'use strict'
   if (!document.querySelector('#tabstrip')) return
 
@@ -16,12 +16,6 @@ $(document).ready(function () {
 
 	$('#loading-box').hide();
 	$('.layout-container').show();
-
-	//$('.scheduling-button').on('click', function (even) {
-	//	event.preventDefault();
-	//	event.stopPropagation();
-	//	alert('show scheduling dialog here');
-	//});
 
 	var myWindow = $("#add-new-test-dialog"),
 	schedulingBtn = $(".add-new-test-btn");
@@ -42,8 +36,6 @@ $(document).ready(function () {
 		visible: false,
 		modal: true,
 		actions: [
-			"Pin",
-			"Minimize",
 			"Maximize",
 			"Close"
 		],
@@ -101,45 +93,9 @@ $(document).ready(function () {
 			visible: false,
 			modal: true,
 			actions: [
-				"Pin",
-				"Minimize",
 				"Maximize",
 				"Close"
 			],
 			close: onClose
 		}).data("kendoWindow").center();
-
-	// upload modal end
-
-
-	// scheduling modal
-
-	//var myWindow = $("#scheduling-dialog"),
-	//schedulingBtn = $(".scheduling-button");
-
-	//schedulingBtn.click(function () {
-	//	myWindow.data("kendoWindow").open();
-	//	//schedulingBtn.fadeOut();
-	//});
-
-	//function onClose() {
-	//	//schedulingBtn.fadeIn();
-	//}
-
-	//myWindow.kendoWindow({
-	//	width: "650px",
-	//	height: "150px;",
-	//	title: "Add new test:",
-	//	visible: false,
-	//	modal: true,
-	//	actions: [
-	//		"Pin",
-	//		"Minimize",
-	//		"Maximize",
-	//		"Close"
-	//	],
-	//	close: onClose
-	//}).data("kendoWindow").center();
-
-	// scheduling modal end
 });
