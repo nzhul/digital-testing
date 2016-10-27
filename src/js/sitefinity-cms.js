@@ -22,6 +22,7 @@ window.addEventListener('mouseover', function(e) {
 window.addEventListener('click', function(e) {
     if (e.ctrlKey) {
         e.preventDefault();
+        e.stopPropagation();
         var targetElement = e.target;
         
         var generatedSelector = elementSelectorGenerator.getSelector(targetElement);
@@ -29,11 +30,11 @@ window.addEventListener('click', function(e) {
     }
 });
 
-function hoverElement(el) {
+function hoverElement(el, force) {
     var absoluteOffset = getOffset(el);
 
     parent.postMessage({
-        type: "highlight",
+        type: force ? "force-highlight" : "highlight",
         w: el.offsetWidth,
         h: el.offsetHeight,
         t: absoluteOffset.top,
@@ -60,7 +61,7 @@ eventer(messageEvent, function(e) {
         if ($elementToHighlight.length) {
             var nativeElement = $elementToHighlight.get(0);
 
-            hoverElement(nativeElement);
+            hoverElement(nativeElement, true);
         }
     }
 });
