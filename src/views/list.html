@@ -149,10 +149,10 @@
 	<div class="demo-section k-content">
 		<div id="tabstrip">
 			<ul>
-				<li>
+				<li class="k-state-active">
 					Basic
 				</li>
-				<li class="k-state-active">
+				<li>
 					Test Studio
 				</li>
 				<li>
@@ -836,8 +836,14 @@
 				</div>
 
 				<div id="teststudio-upload-fake-loading" style="display:none;"> <!--style="display:none;"-->
-					<p>Analizing your test solution ...</p>
-					<paper-progress id="js-analize-bar" class="slow"></paper-progress>
+					<div class="form-field">
+						<p>Analizing your test solution ...</p>
+						<paper-progress id="js-analize-bar" class="slow"></paper-progress>
+					</div>
+					<div class="form-field">
+						<p>Analizing your test solution ...</p>
+						<paper-progress id="js-analize-bar2" class="slow"></paper-progress>
+					</div>
 				</div>
 				<div id="teststudio-upload-result" style="display:none;">
 					Result ...

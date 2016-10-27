@@ -13,7 +13,7 @@ $(document).ready(function () {
 	});
 
 	$("#panelbar").kendoPanelBar({
-		expandMode: "single"
+		expandMode: "multiple"
 	});
 
 	$('#loading-box').hide();
@@ -108,15 +108,12 @@ $(document).ready(function () {
 		$('#teststudio-upload-wrapper').hide();
 		$('#teststudio-upload-fake-loading').slideToggle('fast'); // show polimer fancy loading
 		progress
-			.start(document.querySelector('#js-analize-bar'), 3)
-			.then(() => window.alert('123'))
-		setTimeout(function () {
-			// wait for 5 seconds
-			$('#teststudio-upload-fake-loading').hide();
-			$('#teststudio-upload-result').show();
-
-		}, 5000);
-
+			.start(document.querySelector('#js-analize-bar'), 1)
+			.then(() => progress.start(document.querySelector('#js-analize-bar2'), 2))
+			.then(() => {
+				$('#teststudio-upload-fake-loading').slideToggle('fast')
+				$('#teststudio-upload-result').slideToggle('fast')
+			})
 	});
 });
 
