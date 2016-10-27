@@ -36,6 +36,7 @@ const handler = (event) => {
     .then(() => start(document.querySelector('#js-bar2'), 2))
     .then(() => start(document.querySelector('#js-bar3'), 2))
     .then(() => start(document.querySelector('#js-bar4'), 3))
+    .then(() => document.querySelector('#js-dialog').open())
   event.preventDefault()
 }
 
