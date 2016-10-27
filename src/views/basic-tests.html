@@ -1,4 +1,12 @@
-<style>	
+<style>
+	#app-content {
+		padding: 0;
+	}
+
+	#app-content > div:first-of-type {
+		height: 100%;
+	}
+
 	.flex-box {
 		display: flex;
 		flex-flow: column;
@@ -198,7 +206,7 @@
 	}
 
 	.suites-selector-section {
-		padding: 10px;
+		padding: 10px 10px 0;
 	}
 
 	.select2-container {
@@ -213,6 +221,16 @@
 		background-color: #33495f;
 		color: hsla(0, 0%, 100%, .5);
 		font-weight: 400;
+	}
+
+	.save-section {
+		padding: 10px;
+	}
+
+	.save-button {
+		display: block;
+		text-align: center;
+		text-transform: uppercase !important;
 	}
 </style>
 
@@ -236,6 +254,9 @@
 		</select>
 	</div>
 	<h4 class="test-case-section-header">4. Save</h4>
+	<div class="save-section">
+		<paper-button raised class="save-button btn-prim">Save</paper-button> 
+	</div>
 </script>
 
 <script id="testStepTemplate" type="text/x-kendo-template">
@@ -269,6 +290,66 @@
 			<a href="\\#" class="fa fa-plus-circle add-control" aria-hidden="true"></a>
 			<a href="\\#" class="fa fa-minus-circle remove-control" aria-hidden="true"></a>
 		</div>
+	</div>
+</script>
+
+<script id="testAssertTemplate" type="text/x-kendo-template">
+	<div class="test-step">
+		<div class="tp-input test-step-item">
+			<label>Object:</label>
+			<select class="input assert-object-selector">
+				<option  value="url-path" # if (object === 'url-path') { # selected="selected" # } #>URL Path</option>
+				<option value="full-url" # if (object === 'full-url') { # selected="selected" # } #>Full URL</option>
+				<option value="element" # if (object === 'element') { # selected="selected" # } #>Element</option>
+			</select>
+			<p class="hint">Object to assert</p>
+		</div>
+
+		<div class="assert-object-config url-path full-url">
+			<div class="tp-input test-step-item">
+				<label>Operation:</label>
+				<select class="input">
+					<option value="equals" # if (operation === 'equals') { # selected="selected" # } #>Equals</option>
+					<option value="contains" # if (operation === 'contains') { # selected="selected" # } #>Contains</option>
+					<option value="ends-with" # if (operation === 'ends-with') { # selected="selected" # } #>Ends With</option>
+					<option value="starts-with" # if (operation === 'starts-with') { # selected="selected" # } #>Starts With</option>
+				</select>
+				<p class="hint">Operation to execute</p>
+			</div>
+
+			<div class="tp-input test-step-item">
+				<label>Value:</label>
+				<input class="input" value="#= value #" type="text">
+				<p class="hint">Operation value</p>
+			</div>
+		</div>
+
+		<div class="assert-object-config element">
+			<div class="tp-input test-step-item">
+				<label>Element selector:</label>
+				<div class="tp-icon-input">
+					<input class="input selector-input" value="#= elementSelector #" type="text">
+					<a href="\\#" class="icon fa fa-plus"></a>
+				</div>							
+				<p class="hint">Valid CSS selector</p>
+			</div>
+
+			<div class="tp-input test-step-item">
+				<label>Operation:</label>
+				<select class="input">
+					<option value="exist" # if (operation === 'exist') { # selected="selected" # } #>Exist</option>
+					<option value="does-not-exist" # if (operation === 'does-not-exist') { # selected="selected" # } #>Does Not Exist</option>
+					<option value="visible" # if (operation === 'visible') { # selected="selected" # } #>Visible</option>
+				</select>
+				<p class="hint">Operation to execute</p>
+			</div>
+		</div>
+
+		<div class="test-step-controls">
+			<a href="\\#" class="fa fa-plus-circle add-control" aria-hidden="true"></a>
+			<a href="\\#" class="fa fa-minus-circle remove-control" aria-hidden="true"></a>
+		</div>
+
 	</div>
 </script>
 
