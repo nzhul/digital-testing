@@ -47,6 +47,7 @@ $(document).ready(function () {
 		var data = [
 			'webinars',
 			'papers',
+			'services/education/register',
 			'account/login',
 			'company/products',
 			'kendo-ui/window',
@@ -69,7 +70,7 @@ $(document).ready(function () {
 		$('.js-add-test-btn').on('click', function () {
 			var urlName = $('#pages').val();
 			if (urlName) {
-				window.location = "/testbuilder?urlname=" + urlName;
+				window.location = "/test-builder?urlname=" + urlName;
 			}
 		});
 

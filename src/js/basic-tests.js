@@ -286,4 +286,7 @@ import './jquery.inlineedit.js';
             ]
         });
     });
+
+    $('#app-sidebar a.is-active').attr('href', '/list');
+    
 })();
