@@ -97,5 +97,20 @@
 				"Close"
 			],
 			close: onClose
-		}).data("kendoWindow").center();
+	}).data("kendoWindow").center();
+
+
+	// Upload fake
+	$('.js-upload-btn').on('click', function () {
+		uploadWindow.data('kendoWindow').close();
+		$('#teststudio-upload-wrapper').hide();
+		$('#teststudio-upload-fake-loading').show(); // show polimer fancy loading
+		setTimeout(function () {
+			// wait for 5 seconds
+			$('#teststudio-upload-fake-loading').hide();
+			$('#teststudio-upload-result').show();
+
+		}, 5000);
+
+	});
 });

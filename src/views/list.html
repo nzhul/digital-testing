@@ -54,6 +54,14 @@
 		color: white;
 	}
 
+	.upload-btn {
+		margin: 10px 0 0 0px;
+		height: 30px;
+		width: 150px;
+		background-color: #3F51B5;
+		color: white;
+	}
+
 	.scheduling-button {
 		float: right;
 		margin-right: 15px;
@@ -141,11 +149,11 @@
 	<div class="demo-section k-content">
 		<div id="tabstrip">
 			<ul>
-				<li class="k-state-active">
+				<li>
 					Basic
 				</li>
-				<li>
-					TestStudio
+				<li class="k-state-active">
+					Test Studio
 				</li>
 				<li>
 					Selenium
@@ -819,12 +827,20 @@
 				<button class="add-new-test-btn add-btn add-new-suite-btn" style="float:right;"><i class="fa fa-plus" style="margin-left:-15px;margin-right:5px;"></i> Add test suite</button>
 			</div>
 			<div>
-				<div style="text-align:center;">
+				<!--<div id="teststudio-upload-wrapper" style="text-align:center;">
 					<a href="#" class="upload-package-button js-upload-package-modal">
 						<i class="fa fa-archive" style="font-size:80px;"></i><br />
 						<strong>UPLOAD PACKAGE</strong>
 					</a>
 					<p>Required: <br/>TestStudio version: 1.254.487.1 <a href="#" style="color:#3F51B5;text-decoration:none;">[Change]</a></p>
+				</div>-->
+
+				<div id="teststudio-upload-fake-loading"> <!--style="display:none;"-->
+					<p>Analizing your test solution ...</p>
+					<paper-progress id="js-bar2" class="slow"></paper-progress>
+				</div>
+				<div id="teststudio-upload-result" style="display:none;">
+					Result ...
 				</div>
 			</div>
 			<div>
@@ -848,13 +864,10 @@
 </div>
 
 <div id="upload-package-dialog">
-	<h5>TestStudio Package:</h5>
-	<input type="file" value="" />
-
+	<h5>Test Studio Package:</h5>
+	<input type="file" /> 
+	<button class="upload-btn js-upload-btn"><i class="fa fa-upload" style="margin-left:-10px;margin-right:5px;"></i>Upload</button>
 </div>
-
-
-
 
 <div id="scheduling-dialog">
 	<div class="container" style="width:600px">
