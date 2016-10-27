@@ -1,144 +1,4 @@
-﻿<style>
-	.sidebar-navigation-selected:hover {
-		background-color: #F5F7F8 !important;
-	}
-
-	/*Table CSS*/
-
-	table {
-		width: 100%;
-		text-align: left;
-		border-collapse: collapse;
-		border: 1px solid #cbcbcb;
-		box-shadow: 2px 2px 0px #cbcbcb;
-	}
-
-		table th {
-			padding: 8px;
-			font-weight: bold;
-			font-size: 14px;
-			color: gray;
-			border-bottom: 1px solid #cbcbcb;
-			background: #e5e5e5;
-		}
-
-		table td {
-			padding: 5px 5px 5px 5px;
-			color: gray;
-		}
-
-		table tbody tr:hover td {
-			color: #6a6a6a;
-			background: #e5e5e5;
-		}
-
-		table tr {
-			border-bottom: 1px dashed #cbcbcb;
-		}
-
-	/*Table CSS END*/
-
-	.test-success {
-		color: #86CB35;
-	}
-
-	.test-fail {
-		color: #EB0001;
-	}
-
-	.add-btn {
-		margin: 10px 0 0 0px;
-		height: 30px;
-		width: 150px;
-		background-color: #86CB35;
-		color: white;
-	}
-
-	.upload-btn {
-		margin: 10px 0 0 0px;
-		height: 30px;
-		width: 150px;
-		background-color: #3F51B5;
-		color: white;
-	}
-
-	.scheduling-button {
-		float: right;
-		margin-right: 15px;
-		color: gray;
-	}
-
-	.run-suita-now {
-		float: right;
-		margin-right: 18px;
-		margin-top:1px;
-		color: gray;
-	}
-
-	td > .run-suita-now {
-		margin-right: 15px;
-	}
-
-	#loading-box {
-		height: 900px;
-		background-color: #F5F7F8;
-		text-align: center;
-		line-height: 900px;
-		font-size: 20px;
-	}
-
-	.upload-package-button {
-		color:#3F51B5;
-		text-decoration: none;
-	}
-
-	.test-result {
-		width:50px;
-		height:10px;
-		border-radius:5px;
-		float:right;
-		position:relative;
-		top:13px;
-		left:-20px;
-	}
-
-
-	.test-result-0 {
-		background-color: #E10000
-	}
-
-	.test-result-40 {
-		background-color: #ff6a00
-	}
-
-	.test-result-80 {
-		background-color: #ffd800
-	}
-
-	.test-result-100 {
-		background-color:  #86CB35;
-	}
-
-
-	.running-test {
-	  animation: blink-animation 500ms steps(5, start) infinite alternate;
-	  -webkit-animation: blink-animation 500ms steps(5, start) infinite alternate;
-	}
-	@keyframes blink-animation {
-		from { opacity: 0; }
-		to   { opacity: 1; }
-	}
-
-		@keyframes blink-animation2 {
-		from { opacity: 1; }
-		to   { opacity: 0; }
-	}
-	@-webkit-keyframes blink-animation {
-		from { opacity: 0; }
-		to   { opacity: 1; }
-	}
-</style>
-
+<section id="tests-view">
 
 <div id="loading-box">
 	Loading
@@ -871,7 +731,7 @@
 
 <div id="upload-package-dialog">
 	<h5>Test Studio Package:</h5>
-	<input type="file" /> 
+	<input type="file" />
 	<button class="upload-btn js-upload-btn"><i class="fa fa-upload" style="margin-left:-10px;margin-right:5px;"></i>Upload</button>
 </div>
 
@@ -896,3 +756,5 @@
 	</div>
 </div>
 <!--<span id="undo" style="display: none" class="k-button hide-on-narrow">Click here to open the window.</span>-->
+
+</section>
